@@ -1,0 +1,317 @@
+<div class="card banner-wrp">
+    <div class="card-header">
+        <div class="pull-left">
+            <h4 class="card-title"> Add New Career </h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="findUniqueCategory()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" (click)="findUniqueCategory()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-body">
+            <div class="basic-form">
+                <form [formGroup]="CareerDetailForm">
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Category</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="category">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">jobTitle</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="jobTitle">
+                        </div>
+                    </div>
+                            
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">jobDescription</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="jobDescription" [config]="quillConfig"></quill-editor>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">job Brief</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="jobBrief">
+                        </div>
+                    </div>
+                  
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">responsibilities</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="responsibilities" [config]="quillConfig"></quill-editor>
+                        </div>
+                    </div>
+
+                
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">skills</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="skills" [config]="quillConfig"></quill-editor>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">salary</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg"
+                                formControlName="salary">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">jobType</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg"
+                                formControlName="jobType">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">location</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg"
+                                formControlName="location">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Icon image</label>
+                        <div class="col-sm-10 form-file">
+                            <input #careerImageInput type="file" class="form-file-input form-control" id="careerImage"
+                                (change)="banImage($event)">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#careerDetail-create">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Submit Sucess start here -->
+<div class="modal fade" id="careerDetail-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                        <div align="right">
+                            <button type="button" class="btn btn-danger btn-margin"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="careerDetailSubmit()" class="btn btn-success"
+                                data-bs-dismiss="modal">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i>
+                 <br />
+                Are you sure to delete ?
+                
+            </div>
+            
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="CareerDetailDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Category</label>
+                            <div class="col-sm-12">
+                                <select class="default-select form-control wide mb-3 form-control-lg" 
+                                (change)="onChange($event)" formControlName ="category">
+                                <option value="">--Select Category--</option>
+                                <option *ngFor="let item of uniqueServiccategory" [value]="item" >{{item}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="p-3 row" >
+                        <label class="col-form-label col-form-label-lg">Select Category</label>
+                        <div class="col-sm-12"  >
+                            <select class="default-select form-control wide mb-3 form-control-lg"
+                            (change)="getServiceId($event)">
+                            <option value="">--Select jobTitle--</option>
+                            <option *ngFor="let item of careerDetailObj" [value]="item.careerId" >{{item.jobDescription}} 
+                            </option>
+                        </select>
+                        </div>
+                    </div>
+                        <div align="center" class="mb-5">
+                            <button type="submit" class="btn btn-danger light btn-margin" data-bs-dismiss="modal" (click)="careerDetailDelete()">Yes Delete It!</button>
+                            <input type="hidden" class="form-control form-control-lg" value="{{ categoryEdit ?  serviceObj.careerId: '' }}" [ngModel]="categoryEdit ? serviceObj.careerId : '' " formControlName="careerId">                    
+                            <input type="hidden" class="form-control form-control-lg" >
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No Cancel It!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Edit end here -->
+
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+                <h5 class="modal-title">Edit Blog</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="CareerDetailUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Category</label>
+                            <div class="col-sm-12">
+                                <select class="default-select form-control wide mb-3 form-control-lg"
+                                    (change)="onChange($event)" formControlName ="category">
+                                    <option value="">--Select Category--</option>
+                                    <option *ngFor="let item of uniqueServiccategory" [value]="item" >{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select jobTitle</label>
+                            <div class="col-sm-12">
+                                <select class="default-select form-control wide mb-3 form-control-lg"
+                                (change)="getServiceId($event)">
+                                <option value="">--Select jobTitle--</option>
+                                <option *ngFor="let item of careerDetailObj" [value]="item.careerId" >{{item.jobTitle}} 
+                                </option>
+                            </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">jobTitle</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="categoryEdit ? serviceObj.jobTitle : ''"
+                                    value="{{categoryEdit ? serviceObj.jobTitle : ''}}"
+                                    formControlName="jobTitle">
+                            </div>
+                        </div>
+    
+        
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">jobDescription</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="jobDescription"
+                                [ngModel]="categoryEdit ? serviceObj.jobDescription : ''"
+                                value="{{categoryEdit ? serviceObj.jobDescription : ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+
+    
+                        <div class="mb-3 row">
+                            <label class="ccol-sm-2 col-form-label col-form-label-lg">job Brief</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="categoryEdit ? serviceObj.jobBrief : ''"
+                                    value="{{categoryEdit ? serviceObj.jobBrief : ''}}"
+                                    formControlName="jobBrief" >
+                            </div>
+                        </div>                    
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">responsibilities</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="responsibilities"
+                                [ngModel]="categoryEdit ? serviceObj.responsibilities : ''"
+                                    value="{{categoryEdit ? serviceObj.responsibilities : ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Skills</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="skills"
+                                [ngModel]="categoryEdit ? serviceObj.skills : ''"
+                                value="{{categoryEdit ? serviceObj.skills : ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+    
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">salary</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="categoryEdit ? serviceObj.salary : ''"
+                                    value="{{categoryEdit ? serviceObj.salary : ''}}"
+                                    formControlName="salary" >
+                            </div>
+                        </div>
+
+                        
+    
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">jobType</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="categoryEdit ? serviceObj.jobType : ''"
+                                    value="{{categoryEdit ? serviceObj.jobType : ''}}"
+                                    formControlName="jobType" >
+                            </div>
+                        </div>
+    
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">location</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="categoryEdit ? serviceObj.location : ''"
+                                    value="{{categoryEdit ? serviceObj.location : ''}}"
+                                    formControlName="location" >
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Icon image</label>
+                            <div class="col-sm-12 form-file">
+                                <input #bannerImageInput type="file" class="form-file-input form-control" id="careerImage"(change)="banImage($event)">
+                                <span *ngIf="categoryEdit ? serviceObj.iconName?.length: ''">Uploded image: {{categoryEdit ?
+                                    serviceObj.iconName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                           
+                            <button type="submit" (click)="careerDetailUpdate()" class="btn btn-danger light btn-margin"
+                                data-bs-dismiss="modal">Yes Edit It!</button>
+                                <input type="hidden" class="form-control form-control-lg" value="{{ categoryEdit ?  serviceObj.careerId: '' }}" [ngModel]="categoryEdit ? serviceObj.careerId : '' " formControlName="careerId">
+                            <input type="hidden" class="form-control form-control-lg">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No Cancel It!</button>
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="job-details-section pt-100 pb-100" id="job-details">
+    <div class="container">
+        <div class="row d-flex justify-content-center gy-5"  >
+            <div class="col-lg-6" >
+                <div class="job-details-wrap"  *ngFor="let career of careerArray;let i=index">
+                    <h3>{{career.jobTitle}}</h3>
+                    <div [innerHTML]="career.jobDescription" class="content">              
+                    </div>
+                    <h4>Job brief :</h4>
+                    <p class="para">{{career.jobBrief}}</p>
+                    <h4>Responsibilities :</h4>
+                    <div [innerHTML]="career.responsibilities" class="content">              
+                    </div>
+                    <h4>Software Skill’s :</h4>
+                    <div [innerHTML]="career.skills" class="content">              
+                    </div>
+                    <h4>Salary :</h4>
+                    <p class="para">{{career.salary}}  </p>
+                    <h4>Job Type :</h4>
+                    <p class="para">{{career.jobType}} </p>
+                    <h4>Location :</h4>
+                    <p class="para">{{career.location}} </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="apply-form">
+                    <div class="apply-form-title">
+                        <h4>Apply for a Position:</h4>
+                        <p>Please complete the form below to apply for a position :</p>
+                    </div>
+                    <form [formGroup]="CareerForm">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="form-inner">
+                                    <input type="text" name="name" formControlName="fullName" placeholder="Full Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-inner">
+                                    <input type="text" name="phone" formControlName="phoneNumber" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-inner">
+                                    <input type="text" name="email"  formControlName="emailId" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-inner">
+                                    <input type="text" name="position" formControlName="position" placeholder="Position">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-inner">
+                                    <input type="text" name="experience" formControlName="totalExperience" placeholder="Total Experience">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-inner">
+                                    <textarea name="cover" cols="30" rows="6" formControlName="coverLetter" placeholder="Cover Letter"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-inner">
+                                    <label for="cv" class="mb-3">Upload Resume :</label>
+                                    <input #careerImageInput type="file" id="careerImage"
+                                    (change)="banImage($event)">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 text-center">
+                                <button type="submit" (click)="careerSubmit()" [disabled]="isLoading" class="banner-btn">
+                                  {{ isLoading ? 'Please wait...' : 'Send Now' }}
+                                </button>
+                                <h5 *ngIf="successMessage" class="alert alert-success" role="alert">{{ successMessage }}</h5>
+                              </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

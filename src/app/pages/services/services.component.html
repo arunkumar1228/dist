@@ -1,0 +1,171 @@
+<section class="banner-section">
+  <div class="container-fluid">
+    <div class="row zoominheader">
+      <div class="col-lg-12">
+        <div class="banner-info">
+          <h2>Services we Offer</h2>
+          <p>A complete set of transformation</p>
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="service-section pt-50 pb-50" id="service">
+    <img src="assets/images/top_bg_pattern.svg" alt="background_pattern" class="banner-bg-top img-fluid">
+    <img src="assets/images/bottom_bg_pattern.svg" alt="background_pattern" class="banner-bg-bottom img-fluid">
+  <div class="container">
+    <div class="row justify-content-center g-4">
+      <div class="col-lg-4 col-md-6 col-sm-10" *ngFor="let blog of blogArray;let i=index">
+        <div class="service-item1 wow animate__animated animate__fadeInUp" data-wow-duration="1.5s"
+          data-wow-delay="0.2s">
+          <div class="service-img">
+            <a href="{{blog.link}}" class="service-details-btn"><img src="assets/images/arrow.svg" alt="image" /></a>
+            <img [src]="getbackgroundUrl(blog)" />
+            <div class="overlay"></div>
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <img [src]="getIconUrl(blog)" />
+            </div>
+            <h4><a href="{{blog.link}}">{{blog.serviceName}}</a></h4>
+            <p class="para">{{blog.serviceDescription}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>      
+
+<section class="why-us-section pt-50 pb-50">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="section-title primary1">
+          <span>-WHY CHOOSE US-</span>
+          <h3>Our Capabilities</h3>          
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center g-4">
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div
+          class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s"
+          data-wow-delay="0.2s"
+        >
+          <div class="service-content">
+            <span class="sn"><i class="bi bi-lightbulb"></i></span>
+            <h4><a>Skillset</a></h4>
+            <p class="para">
+              We’re a team of many skillset experts to deliver a complete
+              solution.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div
+          class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s"
+          data-wow-delay="0.4s"
+        >
+          <div class="service-content">
+            <span class="sn"><i class="bi bi-laptop"></i></span>
+            <h4><a>Hybrid Environments</a></h4>
+            <p class="para">
+              Our team of certified cloud security experts will evaluate the
+              security posture and put in place safeguards.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div
+          class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s"
+          data-wow-delay="0.8s"
+        >
+          <div class="service-content">
+            <span class="sn"><i class="bi bi-headset"></i></span>
+            <h4><a>End-to-End Support</a></h4>
+            <p class="para">
+              We have specialized teams for each stage of the software
+              application lifecycle.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div
+          class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s"
+          data-wow-delay="0.2s"
+        >
+          <div class="service-content">
+            <span class="sn"><i class="bi bi-briefcase"></i></span>
+            <h4>
+              <a>Improved Branding & Business</a>
+            </h4>
+            <p class="para">
+              Our designs, created to increase brand recall, work just as well
+              for businesses as they do for end users.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div
+          class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s"
+          data-wow-delay="1s"
+        >
+          <div class="service-content">
+            <span><i class="bi bi-gear"></i></span>
+            <h4><a>Proactive Approach to QA</a></h4>
+            <p class="para">
+              QA process must be planned and implemented in stages, with
+              appropriate testing methods incorporated at each stage.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div
+          class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s"
+          data-wow-delay="1.2s"
+        >
+          <div class="service-content">
+            <span><i class="bi bi-clipboard-data"></i></span>
+            <h4><a>Performance</a></h4>
+            <p class="para">
+              We can fine-tune the software by assessing its scalability and
+              reliability with analysis-based optimization at each stage of
+              iterative development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="join-section pt-50 pb-50">
+  <div class="container">
+      <div class="joinus-area d-flex align-items-center wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s" data-wow-delay="0.4s">
+          <div class="row d-flex align-items-center g-4">
+              <div class="col-lg-7 justify-content-lg-start justify-content-center text-lg-start text-center">
+                  <h2>Start Your Journey Towards Unmatched Innovation and Success.</h2>
+              </div>
+              <div class="col-lg-5 d-flex justify-content-lg-end justify-content-center wow animate__animated animate__fadeInUp"
+                  data-wow-duration="1.5s" data-wow-delay="0.6s">
+
+                  <a href="/contact"><button class="finbyz-button">Talk to our Experts</button></a>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

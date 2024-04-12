@@ -1,0 +1,12 @@
+{
+ "/qbrainx-api/*": {
+     "_comment": "Try This",
+     "target": "https://qbrainx.com",
+     "secure": false,
+     "logLevel": "debug",
+     "pathRewrite": {
+         "^/qbrainx-api": ""
+     },
+     "changeOrigin": true
+ }
+}

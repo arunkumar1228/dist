@@ -1,0 +1,335 @@
+<section class="banner-section">
+  <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-caption carousel-item active">               
+          <div class="d-md-block">
+              <img class="wow animate__animated animate__fadeInUp" src="/assets/images/workflow-digital.svg" alt="image" width="50px">
+              <h4 class="pt-3">Workflow Digitization</h4>
+              <p>QBrainX helps companies install solutions rapidly and with remarkable efficiency, without sacrificing the user experience.</p>
+          </div>
+        </div>
+        <div class="carousel-caption carousel-item">
+          <div class="d-md-block">
+              <img class="wow animate__animated animate__fadeInUp" src="/assets/images/modernization.svg" alt="image" width="50px">
+              <h4 class="pt-3">Enterprise Modernization</h4>
+              <p>QBrainX helps companies install solutions rapidly and with remarkable efficiency, without sacrificing the user experience.</p>
+          </div>
+        </div>
+        <div class="carousel-caption carousel-item">
+          <div class="d-md-block">
+              <img class="wow animate__animated animate__fadeInUp" src="/assets/images/boosting.svg" alt="image" width="50px">
+              <h4 class="pt-3">Boosting Business Metrics</h4>
+              <p>QBrainX helps companies install solutions rapidly and with remarkable efficiency, without sacrificing the user experience.</p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</section>
+<div class="service-section pt-50 pb-50">      
+  <div class="container">
+      <div class="row justify-content-span">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 title text-span text-center">                
+              <span>Capabilities</span>
+              <h3>Our ServiceNow Capabilities</h3>                
+          </div>
+      </div>
+      <div class="row position-relative justify-content-span pt-3">
+          <div class="swiper service-slider1 swiper-fix" id="mover">
+              <div class="swiper-wrapper mover-wrapper">
+                  <div class="move swiper-slide col-xl-4 col-lg-6 col-md-8 col-sm-12 col-xs-12" *ngFor="let Service of serviceArray;let i=index">
+                      <div class="service-item2 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
+                          <div class="service-content">
+                              <span>
+                                  <img [src]="getIconUrl(Service)" />
+                              </span>
+                              <h4><a href="{{ Service.link }}">{{Service.title}}</a></h4>
+                              <p class="para">{{Service.text}}</p>
+                              <a routerLink="{{ Service.link}}" class="btn mt-3">{{Service.buttonName}} <i class="bi bi-arrow-right"></i></a>
+                          </div>
+                      </div>
+                  </div>                    
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+<div class="capabilities_section pt-50 pb-50">
+  <img src="assets/images/top_bg_pattern.svg" alt="background_pattern" class="banner-bg-top img-fluid">
+  <img src="assets/images/bottom_bg_pattern.svg" alt="background_pattern" class="banner-bg-bottom img-fluid">  
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 title text-span wow animate__animated animate__fadeInUp" data-wow-duration="1.5s"
+              data-wow-delay="0.2s">
+              <span>-Services-</span>
+              <h3>Our ServiceNow Services</h3>
+          </div>
+      </div>
+      <div class="row pt-5 d-flex justify-content-center">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 info wow animate__animated animate__fadeInUp d-flex justify-content-span"
+              data-wow-duration="1.5s" data-wow-delay="0.4s">
+              <div class="capabilities_info">
+                  <div class="capabilities_image">
+                      <img alt="image" src="assets/images/implementation.png" width="100%">
+                  </div>
+                  <div class="content">
+                      <h4>Implementation Services</h4>
+                      <p>Our ServiceNow implementation experts provide the guidance and support organizations in
+                          deploying, configuring, and customizing the ServiceNow platform to meet their specific business
+                          requirements and goals.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 info wow animate__animated animate__fadeInUp"
+              data-wow-duration="1.5s" data-wow-delay="0.6">   
+              <div class="capabilities_info">
+                  <div class="capabilities_image">
+                      <img alt="image" src="assets/images/advisory.png" width="100%">
+                  </div>
+                  <div class="content">
+                      <h4>Advisory Services</h4>
+                      <p>Our ServiceNow experts with 15+ years of experience offer expert guidance and strategic
+                          recommendations to help organizations optimize the use of the ServiceNow platform and align it
+                          with their business goals and objectives.</p>
+                  </div>                    
+              </div>                             
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 info wow animate__animated animate__fadeInUp"
+              data-wow-duration="1.5s" data-wow-delay="0.8s">
+              <div class="capabilities_info">
+                  <div class="capabilities_image">
+                      <img alt="image" src="assets/images/staff_agumentation.png" width="100%">
+                  </div>
+                  <div class="content">
+                      <h4>Staff Augmentation Services</h4>
+                      <p>ServiceNow staff augmentation provides skilled professionals to supplement your existing team,
+                          enhancing productivity, expertise, and efficiency in ServiceNow platform implementation,
+                          development, configuration, and support.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 info wow animate__animated animate__fadeInUp"
+              data-wow-duration="1.5s" data-wow-delay="1s">
+              <div class="capabilities_info">
+                  <div class="capabilities_image">
+                      <img alt="image" src="assets/images/managed_services.png" width="100%">
+                  </div>
+                  <div class="content">
+                      <h4>Managed Services</h4>
+                      <p>Our ServiceNow Managed Services Support team provide ongoing support, maintenance, and
+                          optimization of the ServiceNow platform, ensuring its stability, performance, and alignment with
+                          business needs through expert assistance and proactive management.</p>
+                  </div>
+              </div>    
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 info wow animate__animated animate__fadeInUp"
+              data-wow-duration="1.5s" data-wow-delay="1.2s">
+              <div class="capabilities_info">
+                  <div class="capabilities_image">
+                      <img alt="image" src="assets/images/platform-assessment.png" width="100%">
+                  </div>
+                  <div class="content">
+                      <h4>Platform Assessment</h4>
+                      <p>Our expert teams will assess your platform on various aspects viz the implementation,
+                          configuration, and utilization of the ServiceNow platform within an organization. The assessment
+                          aims to assess the platform’s effectiveness, identify areas for improvement, and provide
+                          recommendations to optimize its usage.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<section class="data-migration-section pt-50 pb-50">
+  <img src="assets/images/top_bg_pattern.svg" alt="background_pattern" class="banner-bg-top img-fluid">
+  <img src="assets/images/bottom_bg_pattern.svg" alt="background_pattern" class="banner-bg-bottom img-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 title text-center">
+        <span>Position for growth</span>
+        <h3>Transform work at scale</h3>        
+      </div>
+    </div>
+    <div class="row g-4 justify-content-center pt-3 pb-5">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>100+</h4>
+                  <p>Customers managed globally</p>
+              </div>
+          </div>
+      </div>        
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.4s">
+              <div class="service-content">
+                  <!-- <span class="sn">90+</span> -->
+                  <h4>90+</h4>
+                  <p>Certified ServiceNow consultants</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>7+</h4>
+                  <p>Certified Solution Architects</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>7</h4>
+                  <p>Ready to deploy solutions</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>40+</h4>
+                  <p>QBrainX ServiceNow Implementations</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>200+</h4>
+                  <p>Customer instances managed globally</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>4.5 CSAT</h4>
+                  <p>Out of 5.0. Our delivery Score provided by customer</p>
+              </div>
+          </div>
+      </div>       
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.2s">
+              <div class="service-content">
+                  <!-- <span class="sn">5+</span> -->
+                  <h4>5+</h4>
+                  <p>Years leading the ServiceNow partner ecosystem</p>
+              </div>
+          </div>
+      </div>       
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>2M</h4>
+                  <p>Users across the globe</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>5M</h4>
+                  <p>Transactions daily</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6 col-10">
+          <div class="service-item2 style-3 wow fadeInDown h-100" data-wow-duration="1.5s"
+              data-wow-delay="0.6s">
+              <div class="service-content">
+                  <!-- <span class="sn">7+</span> -->
+                  <h4>~1M</h4>
+                  <p>Tasks per month</p>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="case-study-section pt-50">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 title text-span wow animate__animated animate__fadeInUp" data-wow-duration="1.5s"
+              data-wow-delay="0.4s">
+              <span>-Case Study-</span>
+              <h3>Our ServiceNow Case Studies</h3>
+          </div>
+      </div>
+
+      <div class="row py-5">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 info wow animate__animated animate__fadeInUp"
+              data-wow-duration="1.5s" data-wow-delay="0.6s" *ngFor="let caseStudy of caseStudyArrayList;let i=index" >
+              <div class="sigle-blog-1 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
+                  <div class="blog-image">
+                      <img
+                      src="data:image/{{caseStudy.extension}};base64,{{caseStudy.image}}"
+                      class="img-fluid"
+                      alt="image"
+                    />
+                  </div>
+                  <div class="blog-content hover-border1" (click)="caseStudydetails(caseStudy)">
+                      <span>{{caseStudy.category}}</span>
+                      <h4>
+                          <a>{{caseStudy.title}}</a>
+                      </h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row" *ngIf="caseStudyArrayList.length >= itemsPerPage">
+          <div class="col-lg-12 d-flex justify-content-center mt-3 mb-5 pagination-wrap">
+              <div class="pagination d-flex align-items-center">
+                  <button class="pagination-btn" (click)="changePreviousPage()" [disabled]="currentPage === 1">Previous</button>
+                  <span> {{ currentPage }}</span>
+                  <button class="pagination-btn" (click)="changeNextpage()" [disabled]="currentPage === lastpage">Next</button>
+                </div>
+          </div>      
+        </div>
+  </div>
+</div>
+
+<div class="join-section pb-50">
+  <div class="container">
+      <div class="joinus-area d-flex align-items-span wow animate__animated animate__fadeInUp"
+          data-wow-duration="1.5s" data-wow-delay="0.4s">
+          <div class="row d-flex align-items-center g-4">
+              <div class="col-lg-7 justify-content-lg-start justify-content-span text-lg-start text-span">
+                  <h2>Start Your Journey Towards Unmatched Innovation and Success.</h2>
+              </div>
+              <div class="col-lg-5 d-flex justify-content-lg-end justify-content-span wow animate__animated animate__fadeInUp"
+                  data-wow-duration="1.5s" data-wow-delay="0.6s">
+
+                  <a  href="/contact"><button class="finbyz-button">Talk to our Experts</button></a>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

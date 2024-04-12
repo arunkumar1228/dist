@@ -1,0 +1,84 @@
+<!-- loader start -->
+<div *ngIf="loader" class="egns-preloader">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="circle-border">
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <svg width="180px" height="150px" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" style="
+              left: 50%;
+              top: 50%;
+              position: absolute;
+              transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
+            ">
+            
+            <text x="50%" y="50%" text-anchor="middle" stroke="#D90A2C" stroke-width="1px" dy=".3em" fill="#D90A2C" font-size="20" transform="translate(0, 2)">
+              QBrainX
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- End Loader -->
+
+<!-- Inner Banner -->
+<div class="inner-banner pt-100">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center text-center">
+      <div class="col-md-12">
+        <h2 class="inner-banner-title wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">QNews</h2>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb gap-3">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">QNews</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Inner Banner -->
+
+<!-- News Grid Section -->
+<div class="news-grid-section pt-50 pb-100 wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" id="news-grid">
+  <div class="container">
+    <div class="row position-relative justify-content-center g-4">
+      <!-- News Items -->
+      <div class="col-lg-4 col-md-6 col-sm-10" *ngFor="let news of newsArrayList; let i=index">
+        <div class="sigle-news-1 wow fadeInDown" data-wow-duration="1.5s" data-wow-delay="0.2s">
+          <!-- News Image -->
+          <div class="news-image">
+            <img src="data:image/{{news.innerextension}};base64,{{news.InnerImage}}" class="img-fluid" alt="image" />
+          </div>
+          <!-- News Content -->
+          <div class="news-content news-content hover-border1" (click)="newsdetails(news)">
+            <div class="date"><p>{{news.date}}</p></div>
+            <h4><a>{{news.title}}</a></h4>
+            <div class="news-meta">
+              <div class="designation"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="row" *ngIf="newsArrayList.length >= itemsPerPage">
+      <div class="col-lg-12 d-flex justify-content-center mt-5 pagination-wrap">
+        <div class="pagination d-flex align-items-center">
+          <button class="pagination-btn" (click)="changePreviousPage()" [disabled]="currentPage === 1">Previous</button>
+          <span>{{ currentPage }}</span>
+          <button class="pagination-btn" (click)="changeNextpage()" [disabled]="currentPage === lastpage">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- End Pagination -->
+    
+  </div>
+</div>
+<!-- End News Grid Section -->

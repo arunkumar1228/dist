@@ -1,0 +1,209 @@
+[
+  {
+    "headername": "service",
+    "path": "/services"
+  },
+  {
+    "headername": "servicenow",
+    "path": "/services/servicenow"
+  },
+  {
+    "headername": "ITSM",
+    "path": "/services/servicenow/it-service-management"
+  },
+  {
+    "headername": "ITOM",
+    "path": "/services/servicenow/it-operations-management"
+  },
+  {
+    "headername": "CSM",
+    "path": "/services/servicenow/customer-service-management"
+  },
+  {
+    "headername": "HRSD",
+    "path": "/services/servicenow/hr-service-delivery"
+  },
+  {
+    "headername": "GRC",
+    "path": "/services/servicenow/governance-risk-compliance-management"
+  },
+  {
+    "headername": "FSM",
+    "path": "/services/servicenow/field-service-management"
+  },
+  {
+    "headername": "DT",
+    "path": "/services/digitaltransformation"
+  },
+  {
+    "headername": "MA",
+    "path": "/services/digitaltransformation/microservice"
+  },
+  {
+    "headername": "ICS",
+    "path": "/services/it-consulting"
+  },
+  {
+    "headername": "SAP",
+    "path": "/services/sap"
+  },
+  {
+    "headername": "salesforce",
+    "path": "/services/salesforce"
+  },
+  {
+    "headername": "DS",
+    "path": "/services/data-and-ai"
+  },
+   {
+    "headername": "blog",
+    "path": "/blog"
+  },
+  {
+    "headername": "resources",
+    "path": "/resources"
+  },
+  {
+    "headername": "blog-detail",
+    "path": "/blog/blog-detail"
+  },
+  {
+    "headername": "partnerships",
+    "path": "/about/partnerships"
+  },
+
+  {
+    "headername": "contact",
+    "path": "/contact"
+  },
+  {
+    "headername": "about",
+    "path": "/about"
+  },
+  {
+    "headername": "leadership",
+    "path": "/about/leadership"
+  },
+  {
+    "headername": "culture",
+    "path": "/about/culture"
+  },
+  {
+    "headername": "news",
+    "path": "/about/news"
+  },
+  {
+    "headername": "career",
+    "path": "/about/career"
+  },
+  {
+    "headername": "case-studies",
+    "path": "/resources/case-study"
+  },
+    {
+    "headername": "webinar",
+    "path": "/resources/webinar"
+  },
+  {
+    "headername": "webinar-detail",
+    "path": "/webinar/webinar-detail"
+  },
+  {
+    "headername": "webinar-register",
+    "path": "/webinar-register"
+  }
+  ,
+  {
+    "headername": "success-stories",
+    "path": "/resources/success-stories"
+  },
+  
+  {
+    "headername": "sap-programming",
+    "path": "/services/sap/sap-programming"
+  },
+  {
+    "headername": "sap-platform",
+    "path": "/services/sap/sap-platform"
+  },
+  {
+    "headername": "sap-business-application",
+    "path": "/services/sap/sap-business-application"
+  },{
+    "headername": "sap-data-analytics",
+    "path": "/services/sap/sap-data-analytics"
+  },
+  {
+    "headername": "sap-methodology",
+    "path": "/services/sap/sap-methodology"
+  },
+  {
+    "headername": "cpq",
+    "path": "/services/salesforce/cpq"
+  },
+  {
+    "headername": "service-cloud",
+    "path": "/services/salesforce/service-cloud"
+  },
+  {
+    "headername": "crm",
+    "path": "/services/salesforce/crm"
+  },
+  {
+    "headername": "sales-cloud",
+    "path": "/services/salesforce/sales-cloud"
+  },
+  {
+    "headername": "marketing-cloud",
+    "path": "/services/salesforce/marketing-cloud"
+  },
+  {
+    "headername": "Commerce-Cloud", 
+    "path": "/services/salesforce/Commerce-Cloud"  
+  },
+  {
+    "headername": "MuleSoft", 
+    "path": "/services/salesforce/MuleSoft"  
+  },
+  {
+    "headername": "data-analytics",
+    "path": "/services/data-and-ai/data-strategy"
+  },
+  {
+    "headername": "data-engineering",
+    "path": "/services/data-and-ai/data-engineering"
+  },
+  {
+    "headername": "data-science",
+    "path": "/services/data-and-ai/gen-ai"
+  },
+  {
+    "headername": "business-insights",
+    "path": "/services/data-and-ai/business-insights"
+  },
+  {
+    "headername": "data-governance",
+    "path": "/services/data-and-ai/data-governance"
+  },
+  {
+    "headername": "data-grapevine",
+    "path": "/services/data-and-ai/grapevine"
+  },
+  {
+    "headername": "data-driven-governance",
+    "path": "/services/data-and-ai/data-insights-for-government"
+  },
+  {
+    "headername": "privacy",
+    "path": "/privacy-policy"
+  },
+  {
+    "headername": "cookies",
+    "path": "/cookie-policy"
+  },
+  {
+    "headername": "Lets-Talk",
+    "path": "/lets-talk"
+  }
+  
+]

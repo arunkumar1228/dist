@@ -1,0 +1,233 @@
+<div class="card banner-wrp">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="pull-left">
+            <h4 class="card-title mb-0">Add New Case-study</h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="getMethod()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i> 
+            </button>
+            <button type="button" (click)="getMethod()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+
+        <div class="card-body">
+            <div class="basic-form">
+                <form [formGroup]="CasestudyForm">
+
+                  
+
+                
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Case-study category</label>
+                        <div class="col-sm-10">
+
+                            <textarea class="form-control" rows="4" id="comment" formControlName="subcategory"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Case-study Sub-category</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="category" >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Case-study Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="title" >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Case-study Image</label>
+                        <div class="col-sm-10 form-file">
+                            <input type="file" class="form-file-input form-control" id="BannerImage" (change)="banImage($event)">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Case-study brochure </label>
+                        <div class="col-sm-10 form-file">
+                            <input type="file" class="form-file-input form-control" id="brochure" (change)="onFileSelected($event)">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Case-study Details</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="text" [config]="quillConfig"></quill-editor>
+                        </div>
+                    </div>
+                
+                    <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#casestudy-create">Save</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete start here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="CasestudyDelete">
+                        <label class="col-form-label col-form-label-lg">Select Category</label>
+                        <div class="col-sm-12">
+                            <select class="default-select form-control wide mb-3 form-control-lg"
+                                (change)="onChange($event)" formControlName ="category">
+                                <option value="">--Select Category--</option>
+                                <option *ngFor="let item of uniqueServiccategory" [value]="item" >{{item}}</option>
+                            </select>
+                        </div>
+               
+                    
+                    <div class="mb-3 row">
+                        <label class="col-form-label col-form-label-lg">Select jobTitle</label>
+                        <div class="col-sm-12">
+                            <select class="default-select form-control wide mb-3 form-control-lg"
+                            (change)="getServiceId($event)">
+                            <option value="">--Select jobTitle--</option>
+                            <option *ngFor="let item of careerDetailObj" [value]="item.id" >{{item.title}}
+                            </option>
+                        </select>
+                        </div>
+                    </div>
+                        <div align="center" class="mb-5">
+                            <button type="submit" class="btn btn-delete light btn-margin"data-bs-dismiss="modal" (click)="casestudyDelete()">Yes Delete It!</button>
+                            <input type="hidden" class="form-control form-control-lg" value="{{ categoryEdit ?  serviceObj.id: '' }}" [ngModel]="categoryEdit ? serviceObj.id : '' " formControlName="id">                    
+                            <input type="hidden" class="form-control form-control-lg" >
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->
+
+
+
+<!-- Modal Edit start here -->
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+                <h5 class="modal-title">Edit Case-study</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="CasestudyUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Case-study</label>
+                            <div class="col-sm-12">
+                                <select class="default-select form-control wide mb-3 form-control-lg"
+                                    (change)="onChange($event)" formControlName ="category">
+                                    <option value="">--Select Category--</option>
+                                    <option *ngFor="let item of uniqueServiccategory" [value]="item" >{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Case-study</label>
+                            <div class="col-sm-12">
+                                <select class="default-select form-control wide mb-3 form-control-lg"
+                                (change)="getServiceId($event)">
+                                <option value="">--Select Title--</option>
+                                <option *ngFor="let item of careerDetailObj" [value]="item.id" >{{item.title}} 
+                                </option>
+                            </select>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Case-study Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"  value="{{ categoryEdit ? serviceObj.title: '' }}" [ngModel]="categoryEdit ? serviceObj.title : '' " formControlName="title" >
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Case-study Details</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="text" [ngModel]="categoryEdit ? serviceObj.text: ''" value="{{categoryEdit ? serviceObj.text: ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+                      
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Case-study image</label>
+                            <div class="col-sm-12 form-file">
+                                <input type="file" id="bannerImage" class="form-file-input form-control" (change)="banImage($event)">
+                                <span *ngIf="categoryEdit ? serviceObj.fileName?.length: ''">Uploded image: {{categoryEdit ? serviceObj.fileName : ''}}</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Case-study brochure</label>
+                            <div class="col-sm-12 form-file">
+                                <input type="file" class="form-file-input form-control" id="brochure" (change)="onFileSelected($event)">
+                                
+                                <span *ngIf="categoryEdit ? serviceObj.downloadFile?.length: ''">Uploded brochure: {{categoryEdit ? serviceObj.downloadFile : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                            <button type="submit" (click)="casestudyUpdate()" class="btn btn-save">Save changes</button>
+                            <input type="hidden" class="form-control form-control-lg" value="{{ categoryEdit ? serviceObj.id: '' }}" [ngModel]="categoryEdit ? serviceObj.id : '' " formControlName="id">
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->
+
+
+<!-- Modal confirm starts here -->
+
+<div class="modal fade" id="casestudy-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit this Case Study ?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                        <div align="right">
+                            <button type="button" class="btn btn-danger btn-margin"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="casestudySubmit()" class="btn btn-success"
+                                data-bs-dismiss="modal">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm ends here -->

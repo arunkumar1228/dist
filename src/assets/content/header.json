@@ -1,0 +1,150 @@
+[
+    {
+      "menuId": 34,
+      "menuName": "Service",
+      "path": "/Service",
+      "subMenus": [
+        {
+          "subAddressId": 73,
+          "subMenuName": "ServiceNow",
+          "path": "/ServiceNow",
+          "subSubMenus": [
+            {
+              "subSubMenuId": 74,
+              "subSubMenuName": "IT Service Management (ITSM)",
+              "path": "/ITSM"
+            },
+            {
+              "subSubMenuId": 75,
+              "subSubMenuName": "IT Operations Management (ITOM)",
+              "path": "/ITOM"
+            },
+            {
+              "subSubMenuId": 76,
+              "subSubMenuName": " Customer Service Management",
+              "path": "/CSM"
+            },
+            {
+              "subSubMenuId": 77,
+              "subSubMenuName": "HR Service Delivery (HRSD)",
+              "path": "/HRSD"
+            },
+            {
+              "subSubMenuId": 78,
+              "subSubMenuName": "Governance Risk & Compliance Management (GRC)",
+              "path": "/GRC"
+            },
+            {
+              "subSubMenuId": 79,
+              "subSubMenuName": "Field Service Management (FSM)",
+              "path": "/FSM"
+            }
+          ]
+        },
+        {
+          "subAddressId": 80,
+          "subMenuName": "Digital Transformation",
+          "path": "/Digital Transformation",
+          "subSubMenus": [
+            {
+              "subSubMenuId": 81,
+              "subSubMenuName": "Microservice Architecture",
+              "path": "/MA"
+            }
+          ]
+        },
+        {
+          "subAddressId": 82,
+          "subMenuName": "Salesforce",
+          "path": "/Salesforce",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 83,
+          "subMenuName": "IT Consulting and Services",
+          "path": "/ICS",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 84,
+          "subMenuName": "Data Solution",
+          "path": "/DS",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 85,
+          "subMenuName": "SAP",
+          "path": "/SAP",
+          "subSubMenus": []
+        }
+      ]
+    },
+    {
+      "menuId": 52,
+      "menuName": "About",
+      "path": "/About",
+      "subMenus": [
+        {
+          "subAddressId": 53,
+          "subMenuName": "Leadership",
+          "path": "/leadership",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 55,
+          "subMenuName": "Our Culture",
+          "path": "/culture",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 59,
+          "subMenuName": "Careers",
+          "path": "/career",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 57,
+          "subMenuName": "QNews",
+          "path": "/news",
+          "subSubMenus": []
+        }
+      ]
+    },
+    {
+      "menuId": 68,
+      "menuName": "Blog",
+      "path": "/blog",
+      "subMenus": []
+    },
+    {
+      "menuId": 69,
+      "menuName": "Contact",
+      "path": "/contact",
+      "subMenus": []
+    },
+    {
+      "menuId": 61,
+      "menuName": "Resources",
+      "path": null,
+      "subMenus": [
+        {
+          "subAddressId": 86,
+          "subMenuName": "Case Studies",
+          "path": "/case-studies",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 87,
+          "subMenuName": "Webinars",
+          "path": "/webinar",
+          "subSubMenus": []
+        },
+        {
+          "subAddressId": 88,
+          "subMenuName": "Success Stories",
+          "path": "/success-stories",
+          "subSubMenus": []
+        }
+      ]
+    }
+  ]

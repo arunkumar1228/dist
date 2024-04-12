@@ -1,0 +1,68 @@
+// .container { max-width: 100%;}
+.content-wrap { min-height: 78.9vh; }
+.backend-wrap { min-height: 550px;}
+.brand { cursor: pointer;}
+.footer { padding: 1.5rem 0; color: #fff; text-align: center; background-color: #333; }
+.backend-footer { padding: 1.5rem 0; color: #333; text-align: center; background-color: #ccc; }
+@import "~animate.css/animate.css";
+@import "https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&amp;display=swap";
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: cuprum, sans-serif;
+}
+html {
+  font-size: 1rem;
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  html {
+    font-size: 94%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 87%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  html {
+    font-size: 83%;
+  }
+}
+@media (max-width: 576px) {
+  html {
+    font-size: 80%;
+  }
+}
+body {
+  font-family: poppins, sans-serif;
+}
+
+.service-content h4 {  
+  padding-top: 1rem;
+}
+
+.service-item2 .service-content {
+  span {
+    img {
+      width: 30px;
+      filter: invert(10%) sepia(95%) saturate(4820%) hue-rotate(358deg) brightness(96%) contrast(95%);
+    }           
+  }
+}
+
+.service-item2:hover .service-content {
+  span {
+      img {
+          filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(358deg) brightness(103%) contrast(101%) !important;
+      }            
+  }
+}

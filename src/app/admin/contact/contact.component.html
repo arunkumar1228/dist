@@ -1,0 +1,129 @@
+<div class="card banner-wrp">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="pull-left">
+            <h4 class="card-title mb-0">Add New Contact</h4>
+        </div>
+        <div class="pull-right">
+            <button type="button"  class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i> 
+            </button>
+            <button type="button" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+
+        <div class="card-body">
+            <div class="basic-form">
+
+<form [formGroup]="menuForm" (ngSubmit)="addContact()">
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label col-form-label-lg">country</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-lg"
+                formControlName="country">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label col-form-label-lg">state</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-lg"
+                formControlName="state">
+        </div>
+    </div>
+
+
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label col-form-label-lg">main Latitude</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-lg"
+                formControlName="mainLatitude">
+        </div>
+    </div>
+  
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label col-form-label-lg">main Longitude</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control form-control-lg"
+                formControlName="mainLongitude">
+        </div>
+    </div>
+  
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label col-form-label-lg">country image</label>
+        <div class="col-sm-10 form-file">
+            <input #bannerImageInput type="file" class="form-file-input form-control" id="BannerImage"
+                (change)="banImage($event)">
+        </div>
+    </div>
+  
+    <!-- Sub Menus -->
+    <div formArrayName="subMenus">
+      <div *ngFor="let subMenu of contacts.controls; let i = index" [formGroupName]="i">
+        <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="cityDivision{{ i }}">cityDivision</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'cityDivision' + i"  formControlName="cityDivision">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="city{{ i }}">city</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'city' + i"  formControlName="city">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="state{{ i }}">state</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'state' + i"  formControlName="state">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="country{{ i }}">country</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'country' + i"  formControlName="country">
+            </div>
+          </div>
+  
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="postalCode{{ i }}">postalCode</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'postalCode' + i"  formControlName="postalCode">
+            </div>
+          </div>
+    
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="latitude{{ i }}">latitude</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'latitude' + i"  formControlName="latitude">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="longitude{{ i }}">longitude</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'longitude' + i"  formControlName="longitude">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label col-form-label-lg"  for="address{{ i }}">address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg"  [id]="'address' + i"  formControlName="address">
+            </div>
+          </div>
+        <!-- Sub Sub Menus -->
+        <button type="submit" class="btn btn-primary"(click)="removeContact(i)"  data-bs-dismiss="modal">Remove contact</button>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" (click)="addContact()">Add Contact</button>
+  
+    <button type="submit" class="btn btn-danger">Create Contact</button>
+  </form>
+      
+      
+            </div>
+        </div>
+    </div>
+</div>

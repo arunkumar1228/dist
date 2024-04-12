@@ -1,0 +1,99 @@
+<nav>
+  <div class="container-fluid">
+    <div class="wrapper">
+      <div class="logo"><a href="#"><img src="assets/images/QBrainX-trademark-logo-Original-hashtag.png" alt="QBRAINX" width="200px"></a></div>
+      <input type="radio" name="slider" id="menu-btn">
+      <input type="radio" name="slider" id="close-btn">
+      <ul class="nav-links mb-0">
+        <label for="close-btn" class="btn close-btn"><i class="bi bi-x-circle"></i></label>
+        <li>
+          <a (click)="getpath('service')" class="desktop-item" [ngClass]="{'active': toggle=='service'}">Services <i class="bi bi-plus"></i></a>
+          <input type="checkbox" id="showMega">    
+          <label for="showMega" class="mobile-item">Services</label>    
+          <div class="mega-box">
+            <div class="content">
+              
+              <!-- <div class="row"> -->
+                
+                <ul class="mega-links">
+                  <li><a (click)="getpath('servicenow')" class="main">ServiceNow</a></li>
+                  <li><a (click)="getpath('ITSM')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> IT Service Management (ITSM)</a></li>
+                  <li><a (click)="getpath('ITOM')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> IT Operations Management (ITOM)</a></li>
+                  <li><a (click)="getpath('CSM')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Customer Service Management (CSM)</a></li>
+                  <li><a (click)="getpath('HRSD')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> HR Service Delivery (HRSD)</a></li>
+                  <li><a (click)="getpath('GRC')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Governance Risk & Compliance Management (GRC)</a></li>
+                  <li><a (click)="getpath('FSM')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Field Service Management (FSM)</a></li>
+                </ul>
+              <!-- </div> -->
+              <!-- <div class="row"> -->
+                
+                <ul class="mega-links">
+                  <li><a (click)="getpath('DT')" class="main">Digital Transformation</a></li>
+                  <li><a (click)="getpath('MA')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Microservice Architecture</a></li>                
+                </ul>
+                
+              <!-- </div> -->
+                <ul class="mega-links">
+                  <li><a (click)="getpath('SAP')" class="main">SAP</a></li>
+                  <li><a (click)="getpath('sap-programming')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> SAP Programming</a></li>
+                  <li><a (click)="getpath('sap-platform')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> SAP Platform</a></li>
+                  <li><a (click)="getpath('sap-business-application')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> SAP Business Application</a></li>
+                  <li><a (click)="getpath('sap-data-analytics')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> SAP Data & Analytics</a></li>
+                  <li><a (click)="getpath('sap-methodology')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> SAP Methodology</a></li>                
+                </ul>
+
+                <ul class="mega-links">
+                  <li><a (click)="getpath('salesforce')" class="main">Salesforce</a></li>
+                  <li><a (click)="getpath('cpq')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> CPQ</a></li>
+                  <li><a (click)="getpath('service-cloud')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Service Cloud</a></li>
+                  <li><a (click)="getpath('crm')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> CRM</a></li>
+                  <li><a (click)="getpath('sales-cloud')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Sales Cloud</a></li>
+                  <li><a (click)="getpath('marketing-cloud')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Marketing Cloud</a></li>   
+                  
+                  <li><a (click)="getpath('Commerce-Cloud')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Commerce Cloud</a></li>     
+                  <li><a (click)="getpath('MuleSoft')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> MuleSoft</a></li>             
+                </ul>
+                
+                <ul class="mega-links">                  
+                  <li><a (click)="getpath('DS')" class="main">Data & AI</a></li>            
+                  <li><a (click)="getpath('data-analytics')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Data Strategy</a></li>
+                  <li><a (click)="getpath('data-engineering')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Data Engineering</a></li>
+                  <li><a (click)="getpath('data-science')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Gen AI</a></li>
+                  <li><a (click)="getpath('business-insights')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Business Insights</a></li>
+                  <li><a (click)="getpath('data-governance')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Data Governance</a></li>
+                  <li><a (click)="getpath('data-driven-governance')" class="sub-menu"><i class="bi bi-arrow-down-right"></i> Data Insights for Government</a></li>
+                </ul>
+              <!-- </div> -->
+            </div>
+          </div>
+        </li>
+        <li>
+          <a (click)="getpath('about')" class="desktop-item" [ngClass]="{'active': toggle=='about'}">About <i class="bi bi-plus"></i></a>
+          <input type="checkbox" id="showDrop">   
+          <label for="showDrop" class="mobile-item">About</label>       
+          <ul class="drop-menu">
+            <li><a (click)="getpath('leadership')">Leadership</a></li>
+            <li><a (click)="getpath('culture')">Our Culture</a></li>
+            <li><a (click)="getpath('news')">QNews</a></li>
+            <li><a (click)="getpath('career')">Careers</a></li>
+            <li><a (click)="getpath('partnerships')">Partnerships</a></li>
+          </ul>
+        </li>
+        <li>
+          <a (click)="getpath('resources')" class="desktop-item" [ngClass]="{'active': toggle=='resources'}">Resources <i class="bi bi-plus"></i></a>
+          <input type="checkbox" id="showResource">    
+          <label for="showResource" class="mobile-item">Resources</label>      
+          <ul class="drop-menu">
+            <li><a (click)="getpath('case-studies')">Case Studies</a></li>
+            <li><a (click)="getpath('webinar')">Webinars</a></li>
+            <li><a (click)="getpath('success-stories')">Success Stories</a></li>          
+          </ul>
+        </li>
+        <li><a (click)="getpath('blog')" class="blog"  [ngClass]="{'active': toggle=='blog'}">Blog</a></li>  
+        <li><a (click)="getpath('contact')" class="blog" [ngClass]="{'active': toggle=='contact'}">Contact</a></li>      
+        <li class="contact_list"><a (click)="getpath('Lets-Talk')" [ngClass]="{'active': toggle=='Lets-Talk'}" class="contact banner-btn">Let's Talk</a></li>       
+      </ul>
+      <label for="menu-btn" class="btn menu-btn"><i class="bi bi-list"></i></label>
+    </div>
+  </div>
+</nav>

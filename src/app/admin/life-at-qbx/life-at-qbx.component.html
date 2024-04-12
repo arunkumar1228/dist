@@ -1,0 +1,74 @@
+
+                        <div class="card banner-wrp">
+                
+                            <div class="card-header">
+                                <div class="pull-left">
+                                    <h4 class="card-title">LIFE @ QBRAINX</h4>
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <form [formGroup]="LifeqbxForm">
+                                        <div class="mb-3 row">
+                                            <label class="col-sm-2 col-form-label col-form-label-lg">Title</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control form-control-lg" [ngModel]="lifeatqbObj.textTitle" value="{{lifeatqbObj.textTitle}}" formControlName="Title" placeholder="Title">
+                                            </div>
+                                        </div>
+										
+										<div class="mb-3 row">
+                                            <label class="col-sm-2 col-form-label col-form-label-lg">Sub Title</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control form-control-lg" [ngModel]="lifeatqbObj.textSubTitle" value="{{lifeatqbObj.textSubTitle}}" formControlName="SubTitle" placeholder="Sub Title">
+                                            </div>
+                                        </div>
+										
+										<div class="mb-3 row">
+                                            <label class="col-sm-2 col-form-label col-form-label-lg">Established</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control form-control-lg" [ngModel]="lifeatqbObj.established" value="{{lifeatqbObj.established}}" formControlName="Established" placeholder="Established">
+                                            </div>
+                                        </div>
+										
+										<div class="mb-3 row">
+                                            <label class="col-sm-2 col-form-label col-form-label-lg">Projects</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control form-control-lg" formControlName="Projects" [ngModel]="lifeatqbObj.project" value="{{lifeatqbObj.project}}" placeholder="Projects">
+                                            </div>
+                                        </div>
+										
+										<div class="mb-3 row">
+                                            <label class="col-sm-2 col-form-label col-form-label-lg">Clients</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control form-control-lg" formControlName="Clients" [ngModel]="lifeatqbObj.client" value="{{lifeatqbObj.client}}" placeholder="Clients">
+                                                <input type="hidden" class="form-control form-control-lg" formControlName="id" [ngModel]="lifeatqbObj.id" value="{{lifeatqbObj.id}}">
+                                            </div>
+                                        </div>
+										
+										<button type="Update" (click)="update()" class="btn btn-primary">Update</button>
+										
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+			
+
+<!-- Modal Delete start here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+
+            <div class="modal-footer mx-auto">
+                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Yes Delete It!</button>
+                <button type="button" class="btn btn-primary">No Cancel It!</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->

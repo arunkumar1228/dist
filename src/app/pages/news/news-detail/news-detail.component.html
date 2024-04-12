@@ -1,0 +1,21 @@
+<div class="container wow animate__animated animate__fadeInUp" data-wow-duration="1.5s">
+    <div class="row">
+        <div class="col-md-12 pt-100 pb-50 news-info" *ngFor="let blog of newsData;let i=index">
+            Posted on <span>{{newsData[0].date}}</span>
+            <h1>{{newsData[0].title}}</h1>
+            <div class="image">
+            <img
+            src="data:image/{{newsData[0].extension}};base64,{{newsData[0].image}}"
+                class="img-fluid"
+                alt="image"
+              />
+              </div>
+              <h3>
+                {{newsData[0].subTitle}}
+              </h3>
+                 <div [innerHTML]="newsData[0].text" class="content">
+                
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<!-- Modal Start-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">register webinar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row g-4">
+              <div class="col-lg-12">
+                <div class="form-inner">
+                <input [(ngModel)]="personalDetails.name" name="name" type="text" placeholder="Full Name">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-inner">
+                <input [(ngModel)]="personalDetails.emailId" name="email" type="text" placeholder="Email Address">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-inner">
+                <input [(ngModel)]="personalDetails.domain" name="company" type="text" placeholder="Company Institution">
+              </div>
+            </div>
+          
+          </div>
+          
+          <div style="display: none;">
+            <input [(ngModel)]="personalDetails.id" name="id" type="number">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" (click)="Submit()" class="btn banner-btn" data-bs-dismiss="modal">Register</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- Modal End -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pt-100">
+      <img src="data:image/{{webinarData[0].extension}};base64,{{webinarData[0].image}}" class="img-fluid" alt="Webinar Image" />
+    </div>
+  </div>
+
+  <div class="row pb-80">
+    <div class="col-md-8 webinar-info webinar-left-info">
+      <h2 class="category-sub-title">{{webinarData[0].title}}</h2>
+      <h3>{{webinarData[0].subTitle}}</h3>
+      <hr>
+      <div [innerHTML]="webinarData[0].text" class="content"></div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="webinar-info webinar-right-info" *ngIf="calculateDiff(webinarData[0].date) === 'Session is live'">
+        <p>Session ended. You can watch the session recording by clicking the link below.</p>
+        <button class="banner-btn btn">
+          <a href="{{webinarData[0].link}}" target="_blank">Watch Webinar</a>
+        </button>
+      </div>
+      
+      <div class="webinar-info webinar-right-info" *ngIf="calculateDiff(webinarData[0].date) !== 'Session is live'">
+        <p>Session starts In: {{ calculateDiff(webinarData[0].date) }}</p>
+        <p>You can register for the session by clicking the link below.</p>
+        <button class="banner-btn btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a>Register Now</a>
+                  </button>
+        <h5 *ngIf="sucessMessage" class="alert alert-success" role="alert">Register Successfully!!</h5>
+      </div>
+    </div>
+
+    
+  </div>
+</div>

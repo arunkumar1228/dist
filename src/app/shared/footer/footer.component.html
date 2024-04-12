@@ -1,0 +1,126 @@
+<footer class="style-2">
+    <img
+        src="assets/images/footer-vectr1.png"
+        class="footer-vectr1 img-fluid"
+        alt="image"
+      />
+      <img
+        src="assets/images/footer-vectr2.png"
+        class="footer-vectr2 img-fluid"
+        alt="image"
+      />
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-5">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <a routerLink="index.html"
+                  >
+				  <img alt="image" src="assets/images/QBrainX-trademark-white-logo-Original-01.svg" style="width: 70%;">
+				</a>
+                <p>
+                  We are on a mission to empower and strengthen businesses across various domains and make them the best in business.
+                </p>
+                <h5 class="text-white">ISO 9001:2015 & ISO 27001:2013 (ISMS) Certified</h5>                
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
+              <div class="footer-item">
+                <h5>Our Services</h5>
+                <ul class="footer-list">
+                  <li><a (click)="getpath('servicenow')" class="main">ServiceNow</a></li>
+                  <li><a (click)="getpath('DT')" class="main">Digital Transformation</a></li>
+                  <!-- <li><a routerLink="/it-consulting">IT Consulting and Services</a></li> -->
+                  <li><a (click)="getpath('salesforce')" class="main">Salesforce</a></li> 
+                  <li><a (click)="getpath('DS')" class="main">Data & Ai</a></li> 
+                  <li><a (click)="getpath('SAP')" class="main">SAP</a></li>
+                  <li><a (click)="getpath('news')">QNews</a></li>  
+                  <li><a (click)="getpath('resources')" >Resources</a></li>     
+                  <li><a (click)="getpath('blog')">Blog</a></li>                          
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 d-flex justify-content-lg-center">
+              <div class="footer-item">
+                <h5>Company</h5>
+                <ul class="footer-list">
+                  <li><a (click)="getpath('about')">About</a></li>
+                  <li><a (click)="getpath('leadership')">Leadership</a></li>
+                 <li><a (click)="getpath('culture')">Our Culture</a></li>
+               
+                <li><a (click)="getpath('career')">Careers</a></li>
+                 
+                  <li><a (click)="getpath('case-studies')">Case Studies</a></li>
+                <li><a (click)="getpath('webinar')">Webinars</a></li>
+                <li><a (click)="getpath('success-stories')">Success Stories</a></li>
+                 
+                  <li><a (click)="getpath('contact')">Contact</a></li>                  
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <!-- subscription.component.html -->
+<div>
+  <h2 class="subscribe">Email Subscription</h2>
+  <form (ngSubmit)="subscribe()">
+    <div class="input-with-btn d-flex justify-content-start align-items-stretch">
+      <input type="email" placeholder="Enter your email" [(ngModel)]="emailSubscription.email" name="email" required />
+      <button type="submit">
+        <img alt="image" src="assets/images/send-icon.svg" />
+      </button>
+    </div>
+  </form>
+  <h5 *ngIf="sucessMessage" class="alert alert-success" role="alert">Successfully Subscription</h5>
+
+</div>
+
+                
+                <ul class="footer-social gap-3 pt-3 d-flex">
+                  <li>
+                    <a href="https://www.facebook.com/qbrainx.inc" target="_blank">
+                      <img src="assets/images/icon-facebook.svg"  width="20px" class="m-0"></a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/QBrainX_Inc" target="_blank"><img src="assets/images/icon-twitter.svg" width="20px" class="m-0"></a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/qbrainxinc/" target="_blank"><img src="assets/images/icon-instagram.svg" width="20px" class="m-0"></a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/company/qbrainx/" target="_blank"><img src="assets/images/icon-linkedin.svg" width="20px" class="m-0"></a>
+                  </li>
+                  <li>
+                    <a href="https://www.youtube.com/channel/UCuBoj3m-h5K9t4dfIXvK5Dg" target="_blank"><img src="assets/images/icon-youtube.svg" width="20px" class="m-0"></a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row d-flex align-items-center g-3">
+            <div
+              class="col-lg-6 d-flex justify-content-lg-start justify-content-center"
+            >
+              <p>
+                © QBrainX Inc. 2024 All rights reserved.
+              </p>
+            </div>
+            <div
+              class="col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-center"
+            >
+              <ul
+                class="f-bottom-list d-flex jusify-content-start align-items-center"
+              >
+                <li><a (click)="getpath('privacy')">Privacy Policy</a></li>
+                <!-- <li><a (click)="getpath('cookies')">Cookie Policy</a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>

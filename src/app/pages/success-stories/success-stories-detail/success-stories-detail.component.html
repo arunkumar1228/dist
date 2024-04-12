@@ -1,0 +1,152 @@
+<!-- Modal Start-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Download Use Case Document</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row g-4">
+              <div class="col-lg-12">
+                <div class="form-inner">
+                  <input [(ngModel)]="SuccessStoryDetails.name" name="name" type="text" placeholder="Full Name">
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-inner">
+                  <input [(ngModel)]="SuccessStoryDetails.emailId" name="email" type="text" placeholder="Email Address">
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-inner">
+                  <input [(ngModel)]="SuccessStoryDetails.domain" name="company" type="text" placeholder="Company/Institution">
+                </div>
+              </div>
+          </div>
+          <div style="display: none;">
+            <input [(ngModel)]="SuccessStoryDetails.id" name="id" type="number">
+          </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <button type="button" class="btn banner-btn">Cancel</button>
+            </div>
+            <div class="col-md-6 text-right">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#banner-create" class="btn banner-btn">Download</button>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- Modal End-->
+
+<div class="modal fade" id="banner-create">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-body text-center">
+              <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+              Are you sure to Download ?
+          </div>
+          <div class="modal-body">
+              <div class="basic-form">
+                  <form>
+                      <div align="right">
+                          <button type="button" class="btn banner-btn btn-margin"
+                              data-bs-dismiss="modal">Close</button>
+                          <button type="submit"  class="btn banner-btn" (click)="Submit()"
+                              data-bs-dismiss="modal">Confirm</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="blog-details pt-100 pb-50" id="blog-details">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-8">
+          <div class="blog-details-area">
+            <div class="blog-details-single" *ngFor="let blog of successStoriesArray;let i=index">
+              <div class="image">
+                <img
+                src="data:image/{{successStoriesArray[0].extension}};base64,{{successStoriesArray[0].image}}"
+                  class="img-fluid"
+                  alt="image"
+                />
+              </div>
+              <h3>
+                {{successStoriesArray[0].subTitle}}
+              </h3>
+              
+              <ul class="meta ms-0 ps-0">
+                <li class="author">
+                  
+                  <span class="category-sub-title"> {{successStoriesArray[0].title}}</span>
+                </li>
+                <li class="date">
+                  
+                  <span>{{successStoriesArray[0].date}}</span>
+                </li>
+              </ul>
+              <div [innerHTML]="successStoriesArray[0].text" class="content">              
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="blog-sidebar">            
+            <div class="blog-widget-item">
+              <div class="recent-blog">
+                <h5 class="blog-widget-title">Recent Stories</h5>
+                <div class="blog-widget-body">
+                  <ul class="recent-post-list">
+                        <li *ngFor="let successStories of successStoriesDatas.slice(0, 5)">
+                          <a (click)="handleBlogClick(successStories)">
+                        <div class="recent-post-item">
+                          <div class="blog-image">
+                            <img
+                              src="data:image/{{successStories.extension}};base64,{{successStories.image}}"                              
+                              alt="image"
+                            />
+                          </div>
+                          <div class="recent-post-content">
+                            <h6>
+                              {{successStories.subTitle}}
+                            </h6>
+                      
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div> 
+                       
+            <div class="blog-widget-item">
+              <div class="post-tag">
+                <h5 class="blog-widget-title">Success Storie Document</h5>
+                <div class="blog-widget-body">
+                  <button type="button" class="btn banner-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Download Document
+                  </button>                  
+                </div>
+                <h5 *ngIf="sucessMessage" class="alert alert-success" role="alert">Downloaded Successfully!!</h5>
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

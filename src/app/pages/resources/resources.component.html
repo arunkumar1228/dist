@@ -1,0 +1,87 @@
+<section class="banner-section">
+    <div class="container-fluid">
+      <div class="row zoominheader">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+          <div class="banner-info">
+              <h2>Discover Our Wealth of Resources</h2>  
+              <p>Access a curated collection of educational materials, articles, guides, and tutorials across diverse topics. Empower your journey today.</p>                          
+          </div>        
+        </div>       
+      </div>
+    </div>
+</section>
+
+<div class="resource-section pt-50 wow animate__animated animate__fadeInUp" data-wow-duration="1.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 title text-span text-center">                
+                <span>Explore</span>
+                <h3>Our Resources</h3>                
+            </div>            
+        </div>
+        <div class="row pt-5">
+            <div class="col-lg-4" *ngFor="let item of blogArray">
+                <div class="resources-info" >
+                    <img src="data:image/{{item.extension}};base64,{{item.image}}" width="100%">
+                    <div class="content">
+                        <h4 class="pt-3">{{ item.title }}</h4>
+                        <p>{{ item.text }}</p>
+                        <a [href]="item.link" class="btn banner-btn">{{ item.buttonName }}</a>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- <div class="col-lg-4">
+                <div class="resources-info">
+                    <img src="assets/images/case_study_image.jpg" alt="Case Studies" width="100%">
+                    <div class="content">
+                        <h4 class="pt-3">Case Studies</h4>
+                        <p>Gain a comprehensive understanding of each client's journey, the challenges they faced, and the tailored solutions we provided.</p>
+                        <a href="#" class="btn">Discover More</a>
+                    </div>                    
+                </div>
+            </div> -->
+            <!-- <div class="col-lg-4">
+                <div class="resources-info">
+                    <img src="assets/images/webinar_image.jpg" alt="Case Studies" width="100%">
+                    <div class="content">
+                        <h4 class="pt-3">Webinar</h4>
+                        <p>Learn from industry experts, thought leaders, and practitioners who bring real-world experience and fresh perspectives to the table.</p>
+                        <a href="#" class="btn">Discover More</a>
+                    </div>                    
+                </div>
+            </div> -->
+            <!-- <div class="col-lg-4">
+                <div class="resources-info">
+                    <img src="assets/images/success-story-image.jpg" alt="Case Studies" width="100%">
+                    <div class="content">
+                        <h4 class="pt-3">Success Stories</h4>
+                        <p>Explore success stories from a range of industries, showcasing the versatility and effectiveness of our offerings.</p>
+                        <a href="#" class="btn">Discover More</a>
+                    </div>                    
+                </div>
+            </div> -->
+         
+        </div>
+    </div>
+</div>
+
+<div class="join-section pb-50 pt-50">
+    <div class="container">
+        <div class="joinus-area d-flex align-items-span wow animate__animated animate__fadeInUp"
+            data-wow-duration="1.5s" data-wow-delay="0.4s">
+            <div class="row d-flex align-items-center g-4">
+                <div class="col-lg-7 justify-content-lg-start justify-content-span text-lg-start text-span">
+                    <h2>Start Your Journey Towards Unmatched Innovation and Success.</h2>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-lg-end justify-content-span wow animate__animated animate__fadeInUp"
+                    data-wow-duration="1.5s" data-wow-delay="0.6s">
+
+                   <a href="/about/career"><button class="finbyz-button">Talk to our Experts</button></a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

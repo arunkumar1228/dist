@@ -1,0 +1,193 @@
+<div class="card testimonial-wrp">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="pull-left">
+            <h4 class="card-title mb-0">Add New Testimonial</h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="getAllTestimonialDetails()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" (click)="getAllTestimonialDetails()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+
+        <div class="card-body">
+            <div class="basic-form">
+                <form [formGroup]="TestimonialForm">
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Designation</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="title" >
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Company</label>
+                        <div class="col-sm-10">
+
+                            <textarea class="form-control" rows="4" id="comment" formControlName="subTitle"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Testimonial Image</label>
+                        <div class="col-sm-10 form-file">
+                            <input type="file" class="form-file-input form-control" id="TestimonialImage" (change)="testImage($event)">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Testimonial Details</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="text" [config]="quillConfig"></quill-editor>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#banner-create" >Publish</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal confirm starts here -->
+
+
+<div class="modal fade" id="banner-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit Testimonial?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                    
+                        <div align="right">
+                        <button type="button" class="btn btn-danger btn-margin" data-bs-dismiss="modal">Close</button> 
+                        <button type="submit" (click)="testimonialSubmit()"  class="btn btn-success"  data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Delete start here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <!-- <h5 class="modal-title">Are you sure to delete ?</h5> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div> 
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="TestimonialDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Testimonial</label>
+                            <div>
+                                <select
+                                #selectElem class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select Testimonial--</option> 
+                                    <option *ngFor="let item of TestimonialDetails" [value]="item.id">{{item.title}}</option>                                                                   
+                                </select>
+                            </div>
+                        </div>
+                        <div align="center" class="mb-5">
+                            <button type="submit" class="btn btn-delete light btn-margin"(click)="delete()">Delete</button>
+                            <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  testimonialObj.id: '' }}" [ngModel]="formEdit ? testimonialObj.id : '' " formControlName="id">
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->
+
+
+
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Testimonial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="TestimonialUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Testimonial</label>
+                            <div class="col-sm-12">
+                                <select
+                                 class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select Testimonial--</option>
+                                    <option *ngFor="let item of TestimonialDetails" [value]="item.id">{{item.title}}</option>
+                                </select>
+                            </div>
+                        </div>    
+
+                          <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Title</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" rows="4" [ngModel]="formEdit ?  testimonialObj.title: ''" value="{{formEdit ?  testimonialObj.title: ''}}" id="comment" formControlName="title"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Sub Title</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" rows="4" [ngModel]="formEdit ?  testimonialObj.subTitle: ''" value="{{formEdit ?  testimonialObj.subTitle: ''}}" id="comment" formControlName="subTitle"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Testimonial Details</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="text" [ngModel]="formEdit ?  testimonialObj.text: ''" value="{{formEdit ?  testimonialObj.text: ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+                      
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Testimonial image</label>
+                            <div class="col-sm-12 form-file">
+                                <input type="file" id="TestimonialImage" class="form-file-input form-control" (change)="testImage($event)">
+                                <span *ngIf="formEdit ? testimonialObj.fileName?.length: ''">Uploded image: {{formEdit ? testimonialObj.fileName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button> 
+                        <button type="submit" (click)="testimonialUpdate()" class="btn btn-save">Save changes</button>
+                        <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  testimonialObj.id: '' }}" [ngModel]="formEdit ? testimonialObj.id : '' " formControlName="id">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->
+
+

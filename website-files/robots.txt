@@ -1,0 +1,9 @@
+User-agent:*
+
+Disallow: /betasite/
+Disallow: /beta/
+Disallow: /wp-admin/
+
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://www.qbrainx.com/sitemap_index.xml

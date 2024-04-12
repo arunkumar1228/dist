@@ -1,0 +1,623 @@
+<div *ngIf="loader" class="egns-preloader">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="circle-border">
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <svg width="180px" height="150px" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" style="
+              left: 50%;
+              top: 50%;
+              position: absolute;
+              transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
+            ">
+            
+            <text x="50%" y="50%" text-anchor="middle" stroke="#D90A2C" stroke-width="1px" dy=".3em" fill="#D90A2C" font-size="20" transform="translate(0, 2)">
+              QBrainX
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Banner Section Start -->
+<div id="carouselExampleCaptions" class="carousel slider carousel-fade" data-bs-ride="carousel" data-bs-pause="false"
+  data-bs-interval="8000" data-aos-delay="8000" carousel-fade>
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" *ngFor="let banner of bannerArray;let i=index"
+      class="{{ i == 0 ? 'active' : '' }}" attr.data-bs-slide-to="{{i}}" aria-current="true"
+      aria-label="Slide 1"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let banner of bannerArray; let i = index" [class.active]="i === 0">
+      <!-- Display Image -->
+      <img *ngIf="banner.extension === 'jpg' || banner.extension === 'png'" 
+      [attr.alt]="'QBX-banner'" 
+      [attr.src]="'data:image/' + banner.extension + ';base64,' + banner.image" 
+      class="d-block w-100">
+       
+      <!-- Display Video -->
+      <ng-container *ngIf="banner.extension === 'mp4'">
+        <div class="custom-video-player">
+          <video preload="auto" controls autoplay [loop]="true" class="d-block w-100">
+            <source [src]="banner.image" type="video/mp4">
+          </video>
+        </div>
+      </ng-container>
+      
+  
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1 class="banner-title">{{ banner.title }}</h1>
+          <h4 class="banner-desc">{{ banner.description }}</h4>
+          <p class="banner-btn-btm">
+            <a *ngIf="banner?.buttonlink" class="btn btn-md banner-btn" [href]="banner.buttonlink" role="button">
+              <i class="icon-truck"></i>{{ banner?.buttonName }}
+            </a>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+<!--Banner Section End  -->
+
+<!--Core Services Start  -->
+<section class="service-section pb-5">
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <ul class="slides">
+        <input type="radio" name="radio-btn" id="img-1" value="1" [(ngModel)]="selected" />
+        <li class="slide-container">
+          <div class="slide d-flex align-items-center" id="slide-1">
+            <div
+              class="service-info col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100 d-flex flex-column justify-content-center">
+              <span>-OUR CORE SERVICES-</span>
+              <h2>ServiceNow Excellence</h2>
+              <p>Elevate your enterprise with our world-class ServiceNow consulting and services. We specialize in
+                maximizing workflows, automating business processes, and delivering a seamless customer experience.</p>
+              <button (click)="redirectpage()" class="btn">Discover More</button>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100">
+              <img src="assets/images/servicenow-img.png" />
+            </div>
+          </div>
+        </li>
+
+        <input type="radio" name="radio-btn" id="img-2" value="2" [(ngModel)]="selected" />
+        <li class="slide-container">
+          <div class="slide d-flex align-items-center" id="slide-2">
+            <div
+              class="service-info col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100 d-flex flex-column justify-content-center">
+              <span>-OUR CORE SERVICES-</span>
+              <h2>Salesforce Mastery</h2>
+              <p>Experience Salesforce at its finest with QBrainX. Our seasoned team offers expert Salesforce
+                consulting, implementation, integration, and support services — truly empowering your organization to
+                harness the full potential of Salesforce.</p>
+              <button routerLink="/salesforce" class="btn">Discover More</button>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100">
+              <img src="assets/images/sales-force-img.png" />
+            </div>
+          </div>
+        </li>
+
+        <input type="radio" name="radio-btn" id="img-3" value="3" [(ngModel)]="selected" />
+        <li class="slide-container">
+          <div class="slide d-flex align-items-center" id="slide-3">
+            <div
+              class="service-info col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100 d-flex flex-column justify-content-center">
+              <span>-OUR CORE SERVICES-</span>
+              <h2>Digital Transformation Pioneers</h2>
+              <p>Navigate the digital landscape with confidence. QBrainX accelerates business transformation by
+                leveraging our extensive expertise in devices, apps, and analytics. We are your partners in shaping a
+                future-ready enterprise.</p>
+              <button routerLink="/digitaltransformation" class="btn">Discover More</button>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100">
+              <img src="assets/images/digital transformation.png" />
+            </div>
+          </div>
+        </li>
+        <input type="radio" name="radio-btn" id="img-4" value="4" [(ngModel)]="selected" />
+        <li class="slide-container">
+          <div class="slide d-flex align-items-center" id="slide-5">
+            <div
+              class="service-info col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100 d-flex flex-column justify-content-center">
+              <span>-OUR CORE SERVICES-</span>
+              <h2>SAP Innovation Hub</h2>
+              <p>Transform your organization into a best-run business with QBrainX 's SAP services. From design and
+                development to seamless implementation and integration, we are your trusted SAP partners.</p>
+              <button (click)="redirectpage()" class="btn">Discover More</button>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100">
+              <img src="assets/images/digital transformation-01.jpg" />
+            </div>
+          </div>
+        </li>
+
+        <input type="radio" name="radio-btn" id="img-5" value="5" [(ngModel)]="selected" />
+        <li class="slide-container">
+          <div class="slide d-flex align-items-center" id="slide-6">
+            <div
+              class="service-info col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100 d-flex flex-column justify-content-center">
+              <span>-OUR CORE SERVICES-</span>
+              <h2>Data-Driven Solutions</h2>
+              <p>Revolutionize your data solutions with QBrainX. We specialize in turning legacy systems into
+                high-performance, cost-effective intelligent solutions. Our proactive support ensures sustained success.
+              </p>
+              <button (click)="redirectpage()" class="btn">Discover More</button>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 h-100">
+              <img src="assets/images/data-solutions-img.jpg" />
+            </div>
+          </div>
+        </li>
+        <li class="nav-dots">
+          <div class="dot">
+            <label for="img-1" class="nav-dot" id="img-dot-1" (click)="showimg()"></label>
+            <label for="img-2" class="nav-dot" id="img-dot-2" (click)="showimg()"></label>
+            <label for="img-3" class="nav-dot" id="img-dot-3" (click)="showimg()"></label>
+            <label for="img-4" class="nav-dot" id="img-dot-4" (click)="showimg()"></label>
+            <label for="img-5" class="nav-dot" id="img-dot-5" (click)="showimg()"></label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!--Core Services End  -->
+
+<!--About Section Start  -->
+<section class="about-section pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 about-image">
+        <img src="assets/images/about-image.png" alt="about-image" height="100%" width="100%">
+      </div>
+      <div class="col-md-7 about-info">
+        <div class="d-flex">
+          <div class="info-top">
+            <span>-WHO WE ARE-</span>
+            <h2>We provide essential <span class="red"> IT Services </span> that vow your success.</h2>
+            <p>We are on a mission to empower and strengthen businesses across various domains and make them the best in
+              business. We strive to remain unique with our methods and approach while adhering to the values we’ve been
+              following since our start.</p>
+            <button routerLink="/about" class="btn">Discover More</button>
+          </div>
+          <div class="info-bottom d-flex">
+            <div class="news" *ngFor="let info of whoweareinfoArray;let i=index">
+              <img src="data:image/{{info.extension}};base64,{{info.image}}" alt="...">
+              <div class="news-info d-flex justify-content-between align-items-center">
+                <h5 style="text-align: left !important;">{{info.description}}</h5>
+                <a routerLink="{{info.link}}" class="arrow"><i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <img src="assets/images/Buzz @ QBrainX.png" alt="title-text" class="side-title">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Section End -->
+
+<!-- Product Section Start -->
+<section class="product-section">
+  <div class="container">
+    <!-- <p class="text-center red">-OUR PRODUCTS-</p> -->
+    <h2 class="title-txt-pro"> OUR <span class="red">PRODUCTS</span></h2>
+    <div class="row d-flex align-items-center">
+      <div class="col-md-5 product-info">
+        <div class="d-flex flex-column">
+
+          <a routerLink="#"><img src="assets/images/flexcub-logo.svg" alt="Product-logo" width="150px" /></a>
+        </div>
+        <h2>A modernist way to hire IT contractors</h2>
+        <p>By implementing efficiency through transparency, we are able to deliver better service and quality brains
+          with greater value for your money.</p>
+        <a class="btn" href="https://flexcub.com/" target="_blank">Discover More</a>
+      </div>
+      <div class="col-md-1">
+        <p class="h-ruler"></p>
+      </div>
+
+      <div class="col-md-6 product-info">
+
+        <p><img src="assets/images/qulioptiX-logo.png" alt="Product-logo" width="150px" /></p>
+        <h2>Qualioptix Recommends the Best for Snowflake</h2>
+        <p>Qualioptix is a recommendation app that recommends cost and performance optimization techniques for data management in the Snowflake cloud data platform. </p>
+        <a class="btn" href="/Qualioptix" target="_blank">Discover More</a>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+<!-- Product Section End -->
+
+<!-- what we Offering Section Start-->
+<section id="features" class="features">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12 title text-center">
+        <span>-WHAT WE OFFER-</span>
+        <h2>Our Experienced Fields</h2>
+      </div>
+    </div>
+
+    <div class="tab-content" *ngFor="let field of fieldArray;let i=index">
+
+      <div class="tab-pane show" [ngClass]="{ 'active' : fieldSelected == i }" id="tab-1">
+        <div class="row gy-4">
+          <div class="col-lg-7 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <h3>{{field.heading}}</h3>
+            <p class="info">
+              {{field.description}}
+            </p>
+
+            <div class="indicator m-t-2">
+              <a class="arrow" (click)="previous()"><i class="bi bi-arrow-left"></i></a>
+              <a class="arrow" (click)="next()"><i class="bi bi-arrow-right"></i></a>
+            </div>
+
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+            <img src="data:image/{{field.extension}};base64,{{field.image}}" alt="..." class="img-fluid">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- what we offering section End -->
+
+<section class="testimonial-wrp">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4 title">
+        <span class="color-white">-Client Feedback-</span>
+        <h2 class="color-white">What our clients say about us</h2>
+      </div>
+      <div class="col-xl-8 content-slider">
+        <div class="slider">
+          <div class="mask">
+            <ul>
+              <li class="anim1">
+                <div class="slider__contents">
+                  <p class="slider__txt mb-0">
+                    QBrainX very well directed us through the whole project. We received immediate responses and
+                    support from the specialist, which assured smooth delivery of the project. QBrainX could deliver the
+                    new
+                    ITSM solutions well in time.
+                  </p>
+                  <h2 class="slider__caption">
+                    IT SERVICES DIRECTOR,
+                  </h2>
+                  <h5 class="">A leading Logistics company</h5>
+                </div>
+              </li>
+              <li class="anim2">
+                <div class="slider__contents">
+                  <p class="slider__txt mb-0">
+                    Showcased a great experience and knowledge. QBrainX has evolved in many aspects strengthening their
+                    due
+                    diligence and delivery skills. Remarkable experience in working with them on Digital Transformation
+                    projects.
+                  </p>
+                  <h2 class="slider__caption">
+                    IT HEAD,
+                  </h2>
+                  <h5 class="">SAP Partner</h5>
+                </div>
+              </li>
+
+              <li class="anim3">
+                <div class="slider__contents">
+                  <p class="slider__txt mb-0">
+                    QBrainX very well directed us through the whole project. We received immediate responses and
+                    support
+                    from the specialist, which assured smooth delivery of the project. QBrainX could deliver the new
+                    ITSM
+                    solutions well in time.
+                  </p>
+                  <h2 class="slider__caption">
+                    IT DIRECTOR,
+                  </h2>
+                  <h5 class="">A leading Retail chain company</h5>
+                </div>
+              </li>
+
+              <li class="anim4">
+                <div class="slider__contents">
+                  <p class="slider__txt mb-0">
+                    Your commitment to excellence shines through in the exceptional delivery of the Tech-Mod
+                    Architectural
+                    Design Project. The meticulous attention to detail and innovative solutions have truly set a
+                    benchmark
+                    for high-quality work.
+                  </p>
+                  <h2 class="slider__caption">
+                    Founder-CEO,
+                  </h2>
+                  <h5 class="">A leader in building high-performing teams</h5>
+                </div>
+              </li>
+
+              <li class="anim5">
+                <div class="slider__contents">
+                  <p class="slider__txt mb-0">
+                    A big thank you to QBrainX for their strategic approach in streamlining our system's service
+                    catalogs.
+                    Implementing insightful reports and dashboards has significantly enhanced the transparency and
+                    efficiency of our daily operations, making it a transformative experience.
+                  </p>
+                  <h2 class="slider__caption">
+                    Founder-CEO,
+                  </h2>
+                  <h5 class="">A leader in building high-performing teams</h5>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partnership_section pb-50">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 title text-center">
+        <span>-Partnership-</span>
+        <h2>Delivering Excellence</h2>
+      </div>
+    </div>
+    <div class="row pt-3 text-center d-flex justify-content-around align-items-center">
+      <div class="col-lg-12">
+        <div class="slider">
+          <div class="slide-track">
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/salesforce_partner.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/servicenow_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/sap-partner-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/freshworks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/snowflake_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/databricks_partner_logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/coveo_logo.png">
+            </div>
+
+            <div class="slide_main">
+              <img src="assets/images/dbt-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/cloudera-logo.png">
+            </div>
+            <div class="slide_main">
+              <img src="assets/images/quest-logo.png">
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

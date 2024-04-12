@@ -1,0 +1,130 @@
+<section class="banner-section">
+  <div class="container-fluid">
+    <div class="row zoominheader">
+      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 text-start">
+        <div class="banner-info">
+            <h2>Elevate IT Excellence with Seamless Service Management</h2>
+            <p>Transforming IT operations through agile incident resolution, change orchestration, and streamlined service delivery.</p>
+            <a href="/contact"><button class="finbyz-button">Join Us</button></a>
+        </div>        
+      </div>       
+    </div>
+  </div>
+</section>
+
+<div class="why-us-section pt-50 pb-50">
+  <img src="assets/images/top_bg_pattern.svg" alt="background_pattern" class="banner-bg-top img-fluid">
+  <img src="assets/images/bottom_bg_pattern.svg" alt="background_pattern" class="banner-bg-bottom img-fluid">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-12 col-sm-12 col-xs-12 text-center my-0 mx-auto wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
+          <div class="title primary1">
+            <!-- <span>-WHY CHOOSE US-</span> -->
+            <h3>Our IT Service Management Features</h3>   
+            <p class="pt-3">ITSM is a set of workflows and technologies that enables the development, delivery, and management of IT services to be as efficient as possible. It provides increased productivity, lowers costs, and improved end-user satisfaction. ITSM handles incidents, service requests, problems, and modifications that are usually related to an ITSM platform, such as Service Now.</p>       
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center g-4">
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12"   *ngFor="let blog of serviceArray;let i=index">
+          <div
+            class="service-item2 style-4 wow animate__animated animate__fadeInUp"
+            data-wow-duration="1.5s"
+            data-wow-delay="0.2s"
+          >
+            <div class="service-content" >
+              <span >
+                <img [src]="getIconUrl(blog)" />
+               </span> 
+              <h4><a>{{blog.title}}</a></h4>
+              <p class="para">
+                {{blog.text}}
+              </p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+</div>
+
+<div class="highlights-section wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
+    <div class="container info">
+        <div class="row pt-3">
+            <div class="col-md-12 title text-center">
+                <!-- <span>ServiceNow Services</span> -->
+                <h3>Advantages of our ITSM</h3>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-lg-12">
+                <div class="work-process-area">
+                    <div class="row g-4">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/dashboard.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Dashboards &<br>benchmarks in real-time</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/setup-guidance.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Setup with guidance</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/configuration.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Configuration without a code</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/single-record.svg" alt="image" width="50px">
+                                <h4 class="pt-3">A single record-keeping system</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/cloud.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Cloud computing and security<br>at the enterprise level</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/mobile-application.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Inherently mobile apps</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="join-section pb-50">
+  <div class="container">
+    <div
+      class="joinus-area d-flex align-items-center wow animate__animated animate__fadeInUp"
+      data-wow-duration="1.5s"
+      data-wow-delay="0.4s"
+    >
+      <div class="row d-flex align-items-center g-4">
+        <div
+          class="col-lg-7 justify-content-lg-start justify-content-center text-lg-start text-center"
+        >
+          <h2>Start Your Journey Towards Unmatched Innovation and Success.</h2>                
+        </div>
+        <div
+          class="col-lg-5 d-flex justify-content-lg-end justify-content-center wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s"
+        >
+
+       <a href="/contact"><button class="finbyz-button">Talk to our Experts</button></a>
+
+                  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

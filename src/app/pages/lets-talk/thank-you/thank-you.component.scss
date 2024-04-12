@@ -1,0 +1,47 @@
+.thank-you-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed to center vertically */
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 150px;
+    right: 420px;
+    cursor: pointer;
+    font-size: 26px; /* Adjust the size as needed */
+    font-weight: bold;
+  }
+  
+  .popup {
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  
+  .popup img {
+    width: 65px; /* Adjust based on your preference */
+    height: auto;
+    justify-content: center;
+  }
+  
+  .popup h2 {
+    color: #333;
+  }
+
+  .popup button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f35353;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup button:hover {
+    background-color: #f84444;
+  }

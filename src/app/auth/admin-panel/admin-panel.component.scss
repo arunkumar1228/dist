@@ -1,0 +1,65 @@
+.h-100 {
+    height: 100% !important;
+}
+.align-items-center {
+    align-items: center !important;
+}
+.card {
+    margin-bottom: 1.875rem;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+    position: relative;
+    border: 0rem solid transparent;
+    border-radius: 0.625rem;
+    box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgb(82 63 105 / 5%);
+    height: calc(100% - 30px);
+}
+.sign {
+    background: #ff6a591a;
+    position: relative;
+}
+img, svg {
+    vertical-align: middle;
+}
+.sign .education-img {
+    bottom: 0;
+    left: 0;
+}
+.sign-in-your {
+    padding: 3.125rem 1.875rem;
+}
+.text-black {
+    color: #000 !important;
+}
+.m-0 {
+    margin: 0 !important;
+}
+.mt-3 {
+    margin-top: 1rem !important;
+}
+.my-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+.font-w800 {
+    font-weight: 800;
+}
+.fs-20 {
+    font-size: 1.25rem !important;
+    line-height: 1.5;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+a:hover, a:focus, a.active {
+    text-decoration: none;
+}
+a:hover {
+    color: #cc5547;
+}
+a {
+    color: #777777;
+    text-decoration: none;
+}
+

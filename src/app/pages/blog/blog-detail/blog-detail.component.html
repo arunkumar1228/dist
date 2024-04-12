@@ -1,0 +1,146 @@
+<div class="blog-details pt-100 pb-50" id="blog-details">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-8">
+        <div class="blog-details-area">
+          <div class="blog-details-single" *ngFor="let blog of blogData;let i=index">
+            <div class="image">
+              <img
+              src="data:image/{{blogData[0].extension}};base64,{{blogData[0].image}}"
+                class="img-fluid"
+                alt="image"
+              />
+            </div>
+            <h3>
+              {{blogData[0].subTitle}}
+            </h3>
+            
+            <ul class="meta ms-0 ps-0">
+              <li class="author">
+                
+                <span class="category-sub-title"> {{blogData[0].title}}</span>
+              </li>
+              <li class="date">
+                
+                <span>{{blogData[0].date}}</span>
+              </li>
+            </ul>
+            <div [innerHTML]="blogData[0].text" class="content">              
+            </div>
+            
+          </div>
+          
+        </div>
+
+        <div class="comment-respond">
+          <div class="comment-title">
+            <h3>Write A Comments</h3>
+            <p>Your email address will not be published.</p>
+          </div>
+          <form>
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <div class="form-inner">
+                  <input type="text" [(ngModel)]="blogComment.fullName" name="fullName" placeholder="Your Name: *" required />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-inner">
+                  <input type="email" [(ngModel)]="blogComment.emailId" name="emailId" placeholder="Email Id: " required />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-inner">
+                  <input type="text" [(ngModel)]="blogComment.website" name="website" placeholder="Website " />                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-inner">
+                  <textarea [(ngModel)]="blogComment.comments" name="comments" placeholder="Comments"required></textarea>
+    </div>
+              </div>
+              <div class="col-lg-12 text-start">
+                <button type="submit" class="btn banner-btn" (click)="createComment()">Submit Now</button>
+                <h5 *ngIf="sucessMessage" class="alert alert-success" role="alert">Submitted Successfully!!</h5>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="blog-sidebar">
+          <div class="blog-widget-item">
+          
+<div class="search-area">
+  <div class="blog-widget-body">
+    <form (submit)="searchBlogs()">
+      <div class="search-with-btn">
+        <input type="text" placeholder="Search Here" [(ngModel)]="blogsearch" name="search" />
+        <button type="submit"><i class="bi bi-search"></i></button>
+      </div>
+    </form>
+  </div>
+  <div class="search-content" *ngIf="search">
+    <a *ngFor="let blog of blogDatas; let i = index" (click)="handleBlogClick(blog)">
+      <p class="mt-3">{{ blog.subTitle }}</p>
+    </a>
+  </div>
+</div>
+          </div>
+          <div class="blog-widget-item">
+            <div class="recent-blog">
+              <h5 class="blog-widget-title">Recent Posts</h5>
+              <div class="blog-widget-body">
+                <ul class="recent-post-list">
+                  <li *ngFor="let blog of blogDatas.slice(0, 5)">
+                    <a (click)="handleBlogClick(blog)">
+                      <div class="recent-post-item">
+                        <div class="blog-image">
+                          <img src="data:image/{{ blog.extension }};base64,{{ blog.image }}" alt="image" />
+                        </div>
+                        <div class="recent-post-content">
+                          <h6>{{ blog.subTitle }}</h6>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+                   
+          <div class="blog-widget-item">
+            <div class="follow-area">
+              <h5 class="blog-widget-title mb-1">Share Us</h5>
+              <p class="para">Share this on Social Network</p>
+              <div class="blog-widget-body">
+                <ul class="follow-list d-flex flex-row align-items-start gap-4">
+                  <li>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ getCurrentUrl() }}" target="_blank">
+                      <i class="fa fa-facebook"></i> 
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/intent/tweet?url={{ getCurrentUrl() }}" target="_blank">
+                      <i class="fa fa-twitter"></i> 
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/sharer/sharer.php?u={{ getCurrentUrl() }}"
+                      ><i class="fa fa-instagram"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ getCurrentUrl() }}"
+                      ><i class="fa fa-linkedin"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

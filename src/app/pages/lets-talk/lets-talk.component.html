@@ -1,0 +1,81 @@
+<div class="inner-banner pt-100">
+
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center text-center">
+            <div class="col-md-12">
+                <h2 class="inner-banner-title wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">Let's Talk
+                </h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb gap-3">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Let's Talk</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="let-talk-section pt-50 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center title">
+                <h2>Join Us in Shaping the Future</h2>
+            </div>
+        </div>
+        <!-- your-component.component.html -->
+<div class="row d-flex justify-content-center pt-3">
+  <div class="col-lg-8">
+    <form (ngSubmit)="submitForm()">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="form-inner">
+            <input name="name" type="text" placeholder="Full Name" [(ngModel)]="letsTalk.name" >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-inner">
+            <input name="designation" type="text" placeholder="Designation" [(ngModel)]="letsTalk.designation" >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-inner">
+            <input name="email" type="email" placeholder="Email Address" [(ngModel)]="letsTalk.email" >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-inner">
+            <input name="number" type="tel" placeholder="Contact Number" [(ngModel)]="letsTalk.number" >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-inner">
+            <input name="industry" type="text" placeholder="Industry" [(ngModel)]="letsTalk.industry" >
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-group">
+            <select class="form-select" id="inputGroupSelect02" [(ngModel)]="letsTalk.contactNumber">
+              <option value="">Service interested in</option>
+              <option value="1">ServiceNow</option>
+              <option value="2">Digital Transformation</option>
+              <option value="3">Sap</option>
+              <option value="3">Salesforce</option>
+              <option value="3">Data & ai</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="input-group">
+            <textarea class="form-control" aria-label="With textarea" placeholder="Message" [(ngModel)]="letsTalk.message" required></textarea>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn banner-btn mt-3" (click)="submitForm()" [disabled]="submitted">Submit</button>
+    </form>
+  </div>
+ 
+</div>
+
+    </div>
+</section>

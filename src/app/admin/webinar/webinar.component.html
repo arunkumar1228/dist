@@ -1,0 +1,222 @@
+<div class="card banner-wrp">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="pull-left">
+            <h4 class="card-title mb-0">Add New Webinar</h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="getAllwebinarDetails()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" (click)="getAllwebinarDetails()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+
+        <div class="card-body">
+            <div class="basic-form">
+                <form [formGroup]="WebinarForm">
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Webinar Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="title" >
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Webinar Date</label>
+                        <div class="col-sm-10">
+                            <input type="datetime-local" class="form-control form-control-lg" formControlName="date">
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Webinar Details</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="text" [config]="quillConfig"></quill-editor>
+                        </div>
+                    </div>
+
+                    
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Webinar Inner Image</label>
+                        <div class="col-sm-10 form-file">
+                            <input type="file" class="form-file-input form-control" id="WebinarImage" (change)="testImage($event)">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Webinar Outer Image</label>
+                        <div class="col-sm-10 form-file">
+                            <input type="file" class="form-file-input form-control" id="innerImage" (change)="InnerImage($event)">
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#banner-create"  >Publish</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm stats here -->
+
+
+<div class="modal fade" id="banner-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                    
+                        <div align="right">
+                        <button type="button" class="btn btn-danger btn-margin" data-bs-dismiss="modal">Close</button> 
+                        <button type="submit" (click)="webinarSubmit()"  class="btn btn-success"  data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal confim end here -->
+
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Webinar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="WebinarUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Webinar</label>
+                            <div class="col-sm-12">
+                                <select
+                                 class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select Webinar--</option>
+                                    <option *ngFor="let item of WebinarDetails  " [value]="item.id">{{item.title}}</option>
+                                </select>
+                            </div>
+                        </div>    
+
+                          <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Webinar Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"  value="{{ formEdit ?  WebinarObj.title: '' }}" [ngModel]="formEdit ? WebinarObj.title : '' " formControlName="title" >
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Webinar Sub Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"  value="{{ formEdit ?  WebinarObj.subTitle: '' }}" [ngModel]="formEdit ? WebinarObj.subTitle : '' " formControlName="subTitle" >
+
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Webinar Date</label>
+                            <div class="col-sm-12">
+                                
+                                <input type="datetime-local" class="form-control form-control-lg" [ngModel]="formEdit ?  WebinarObj.date: ''" value="{{formEdit ?  WebinarObj.date :''}}" id="date" formControlName="date">
+
+
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Webinar Video Link</label>
+                            <div class="col-sm-12">
+                                <input type="text"  class="form-control form-control-lg"  [ngModel]="formEdit ?  WebinarObj.link: ''" value="{{formEdit ?  WebinarObj.link :''}}" id="date" formControlName="link" >
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Webinar Details</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="text" [ngModel]="formEdit ?  WebinarObj.text: ''" value="{{formEdit ?  WebinarObj.text: ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+                      
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg"> Webinar Inner image</label>
+                            <div class="col-sm-12 form-file">
+                                <input type="file" id="WebinarImage" class="form-file-input form-control" (change)="testImage($event)">
+                                <span *ngIf="formEdit ? WebinarObj.fileName?.length: ''">Uploded image: {{formEdit ? WebinarObj.fileName : ''}}</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg"> News Outer Image</label>
+                            <div class="col-sm-12 form-file">
+                                <input type="file" class="form-file-input form-control" id="innerImage" (change)="InnerImage($event)">
+                                <span *ngIf="formEdit ? WebinarObj.fileName?.length: ''">Uploded image: {{formEdit ? WebinarObj.innerImageFileName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button> 
+                        <button type="submit" (click)="webinarUpdate()" class="btn btn-save">Save changes</button>
+                        <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  WebinarObj.id: '' }}" [ngModel]="formEdit ? WebinarObj.id : '' " formControlName="id">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->
+
+
+<!-- Modal Delete start here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+            </div> 
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="WebinarDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Webinar</label>
+                            <div>
+                                <select
+                                #selectElem class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select Webinar--</option> 
+                                    <option *ngFor="let item of WebinarDetails" [value]="item.id">{{item.title}}</option>                                                                   
+                                </select>
+                            </div>
+                        </div>
+                        <div align="center" class="mb-5">
+                            <button type="submit" class="btn btn-delete light btn-margin"(click)="delete()">Delete</button>
+                            <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  WebinarObj.id: '' }}" [ngModel]="formEdit ? WebinarObj.id : '' " formControlName="id">
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->
+

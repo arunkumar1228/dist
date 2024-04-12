@@ -1,0 +1,88 @@
+<!-- loader start -->
+<div *ngIf="loader" class="egns-preloader">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="circle-border">
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <svg width="180px" height="150px" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" style="
+              left: 50%;
+              top: 50%;
+              position: absolute;
+              transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
+            ">
+            
+            <text x="50%" y="50%" text-anchor="middle" stroke="#D90A2C" stroke-width="1px" dy=".3em" fill="#D90A2C" font-size="20" transform="translate(0, 2)">
+              QBrainX
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- loader emd -->
+
+
+
+
+<div class="inner-banner pt-100">
+
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center text-center">
+      <div class="col-md-12">
+        <h2 class="inner-banner-title wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">Case Studies</h2>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb gap-3">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Case Studies</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blog-grid-section pt-100 pb-100 wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" id="blog-grid">
+  <div class="container">
+    <div class="row position-relative justify-content-center g-4">
+      <div class="col-lg-4 col-md-6 col-sm-10" *ngFor="let caseStudy of caseStudyArrayList;let i=index">
+        <div
+          class="sigle-blog-1 wow fadeInDown"
+          data-wow-duration="1.5s"
+          data-wow-delay="0.2s"
+        >
+          <div class="blog-image">
+            <img
+              src="data:image/{{caseStudy.extension}};base64,{{caseStudy.image}}"
+              class="img-fluid"
+              alt="image"
+            />
+          </div>
+          <div class="blog-content hover-border1">
+            <h4>
+              <a (click)="caseStudydetails(caseStudy)">
+              <!-- <h3><span>{{caseStudy.category}}</span></h3> -->
+              {{caseStudy.title}}</a
+              >
+            </h4>
+       
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"*ngIf="caseStudyArrayList.length >= itemsPerPage">
+      <div class="col-lg-12 d-flex justify-content-center mt-5 pagination-wrap">
+        <div class="pagination d-flex align-items-center">
+          <button class="pagination-btn" (click)="changePreviousPage()" [disabled]="currentPage === 1">Previous</button>
+          <span> {{ currentPage }}</span>
+          <button class="pagination-btn" (click)="changeNextpage()" [disabled]="currentPage === lastpage">Next</button>
+        </div>
+      </div>      
+    </div>
+    
+  </div>
+</div>

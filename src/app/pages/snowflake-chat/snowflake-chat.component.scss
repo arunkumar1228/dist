@@ -1,0 +1,247 @@
+.pt-100 {
+    padding-top: 100px
+}
+
+.pb-100 {
+    padding-bottom: 100px;
+}
+
+.inner-banner {
+    min-height: 400px;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/../assets/images/inner-banner.png');
+    background-position: bottom;
+    background-size: cover;
+
+    .inner-bannerdot {
+        position: absolute;
+        bottom: 10px;
+        left: 20%;
+        opacity: 0.9;
+        animation: move 10s linear infinite alternate;
+    }
+
+    .inner-bannerwave {
+        position: absolute;
+        bottom: 0;
+        right: 0%;
+        opacity: 0.1;
+    }
+
+    .inner-banner-title {
+        font-size: 55px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+}
+
+.title {
+    span {
+        color: #bb0b0b;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: poppins, sans-serif;
+        margin-bottom: 5px;
+        display: block;
+        margin-top: -5px;
+    }
+
+    h3 {
+        font-size: 2.8125rem;
+        font-weight: 700;
+        color: #18212e;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+}
+
+.faq-section {
+    position: relative;
+    overflow: hidden;
+    z-index: 1
+}
+
+.sidebar-card {
+    padding: 30px 25px;
+    background: #ffffff;
+    box-shadow: 3px 4px 30px rgba(136, 136, 136, .1)
+}
+
+.sidebar-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #303030;
+    // margin-bottom: 30px
+}
+
+.faq-wrap .faq-item {
+    margin-bottom: 24px;
+    border: none
+}
+
+.faq-wrap .faq-item:last-child {
+    margin-bottom: 0
+}
+
+.faq-wrap .faq-item.hover-btn {
+    padding: 1px
+}
+
+.faq-wrap .accordion-button {
+    font-weight: 600;
+    font-size: 20px;
+    background: rgba(39, 174, 96, .09);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .45s ease-in-out;
+    padding: 20px 25px;
+    padding-right: 60px;
+    margin-bottom: 0;
+    line-height: 1.4
+}
+
+.faq-wrap .accordion-button:focus {
+    z-index: unset;
+    border-color: unset;
+    outline: 0;
+    box-shadow: 5px 7px 40px rgba(145, 145, 145, .1)
+}
+
+.faq-wrap .accordion-button::after {
+    flex-shrink: 0;
+    width: unset;
+    height: unset;
+    margin-left: auto;
+    background-image: none;
+    background-repeat: unset;
+    background-size: unset;
+    font-family: bootstrap-icons !important;
+    position: absolute;
+    right: 22px;
+    content: "\f4fe";
+    transition: unset;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.faq-wrap .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    transform: unset;
+    font-family: bootstrap-icons !important;
+    content: "\f2ea";
+    color: #ffffff;
+}
+
+.faq-wrap .accordion-button:hover {
+    background: #bb0b0b;
+    color: #fff
+}
+
+.faq-wrap .accordion-button:hover::after {
+    color: #ffffff;
+}
+
+.faq-wrap .accordion-button.style-2 {
+    box-shadow: 3px 4px 30px rgba(136, 136, 136, .1);
+    background: #ffffff;
+    color: #bb0b0b;
+}
+
+.faq-wrap .accordion-button.style-2:hover {
+    color: #ffffff;
+    background: #bb0b0b;
+}
+
+.faq-wrap .accordion-button.style-2:focus {
+    background: #bb0b0b;
+}
+
+.faq-wrap .accordion-button.style-2:not(.collapsed) {
+    box-shadow: 5px 7px 40px rgba(145, 145, 145, .1);
+    background: #bb0b0b;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    font-weight: 600
+}
+
+.faq-wrap .faq-body {
+    font-weight: 400;
+    font-size: 18px;
+    background: rgba(39, 174, 96, .04);
+    color: #303030;
+    border-top: none;
+    padding: 15px 25px;
+    line-height: 28px;
+    text-align: left
+}
+
+.faq-wrap .faq-body.style-2 {
+    background: rgba(207, 36, 53, .04)
+}
+
+.join-section {
+    overflow: hidden;
+    position: relative;
+}
+
+.joinus-area {
+    background-image: url('/../assets/images/joinus-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 1, 12, 0.8);
+    background-blend-mode: multiply;
+    min-height: 290px;
+    padding: 80px 7%;
+    border-radius: 5px;
+    min-width: 100%;
+    justify-content: center;
+    position: relative;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: cuprum, sans-serif;
+        color: #ffffff;
+        line-height: 1.5;
+    }
+
+    .eg-btn {
+        border-radius: 5px;
+        text-align: center;
+        display: inline-block;
+        transition: all 0.4s ease;
+        text-transform: capitalize;
+    }
+
+    .btn--primary:hover {
+        color: #bb0b0b;
+        background-color: #ffffff;
+    }
+
+    .btn--primary {
+        background: #bb0b0b;
+        position: relative;
+        z-index: 1;
+        white-space: nowrap;
+    }
+
+    .joinus-btn {
+        padding: 14px 45px;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: poppins, sans-serif;
+        color: #ffffff;
+        text-decoration: none;
+    }
+}

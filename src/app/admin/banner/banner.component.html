@@ -1,0 +1,214 @@
+<div class="card banner-wrp">
+    <div class="card-header">
+        <div class="pull-left">
+            <h4 class="card-title"> Add New Banner </h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="allBannerList()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" (click)="allBannerList()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card-body">
+            <div class="basic-form">
+                <form [formGroup]="BannerForm">
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="bannerTitle" >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Sub Title</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="4" id="comment"
+                                formControlName="bannerSubTitle"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Button Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg"
+                                formControlName="bannerCallOfAction">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Button Link</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="link" >
+                        </div>
+                
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Banner image</label>
+                        <div class="col-sm-10 form-file">
+                            <input #bannerImageInput type="file" class="form-file-input form-control" id="BannerImage"
+                                (change)="banImage($event)">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#banner-create">Add Banner</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Submit Sucess start here -->
+<div  class=" container modal fade" id="banner-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit this banner ?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                        <div align="right">
+                            <button type="button" class="btn btn-danger btn-margin"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="bannerSubmit()" class="btn btn-success"
+                                data-bs-dismiss="modal">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Submit Sucess End here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+                
+            </div>
+            
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="BannerDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Banner</label>
+                            <div class="col-sm-12">
+                                <select
+                                #selectElem class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select Category--</option> 
+                                    <option *ngFor="let item of BannerData" [value]="item.id">{{item.bannerTitle}}</option>                                                                   
+                                </select>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger light btn-margin" (click)="bannerDelete()"
+                                data-bs-dismiss="modal">Yes Delete It!</button>
+                            <input type="hidden" class="form-control form-control-lg"
+                                [ngModel]="formEdit ? bannerObj.id : ''" value="{{formEdit ? bannerObj.id : ''}}"
+                                formControlName="id">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No Cancel It!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->
+
+
+<!-- Modal Edit start here -->
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Banner</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="BannerUpdate">
+                         <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Banner</label>
+                            <div class="col-sm-12">
+                                <select
+                                #selectElem class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select Category--</option> 
+                                    <option *ngFor="let item of BannerData" [value]="item.id">{{item.bannerTitle}}</option>                                                                   
+                                </select>
+                                
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Title</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="formEdit ?  bannerObj.bannerTitle: ''"
+                                    value="{{formEdit ?  bannerObj.bannerTitle: ''}}" formControlName="bannerTitle"
+                                  >
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Sub Title</label>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" rows="4" id="comment"
+                                    [ngModel]="formEdit ? bannerObj.bannerSubTitle : ''"
+                                    value="{{formEdit ? bannerObj.bannerSubTitle :''}}"
+                                    formControlName="bannerSubTitle"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Button Name</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="formEdit ? bannerObj.bannerCallOfAction : ''"
+                                    value="{{formEdit ? bannerObj.bannerCallOfAction : ''}}"
+                                    formControlName="bannerCallOfAction" >
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Button Link</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"
+                                    [ngModel]="formEdit ? bannerObj.link: ''"
+                                    value="{{formEdit ? bannerObj.link : ''}}"
+                                    formControlName="link" >
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Banner image</label>
+                            <div class="col-sm-10 form-file">
+                                <input #bannerImageInput type="file" id="bannerImage"
+                                    class="form-file-input form-control" (change)="banImage($event)">
+                                <span *ngIf="formEdit ? bannerObj.fileName?.length: ''">Uploded image: {{formEdit ?
+                                    bannerObj.fileName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                            <button type="button" class="btn btn-danger btn-margin"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="bannerUpdate()" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                            <input type="hidden" class="form-control form-control-lg"
+                                [ngModel]="formEdit ? bannerObj.id : ''" value="{{formEdit ? bannerObj.id : ''}}"
+                                formControlName="id">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->

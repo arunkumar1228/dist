@@ -1,0 +1,290 @@
+.pt-100 {
+    padding-top: 100px
+}
+
+.pb-100 {
+    padding-bottom: 100px;
+}
+
+.pt-50 {
+    padding-top: 50px
+}
+
+.pb-50 {
+    padding-bottom: 50px;
+}
+
+.title {
+    text-align: center;
+
+    span {
+        color: #bb0b0b;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: poppins, sans-serif;
+        margin-bottom: 5px;
+        display: block;
+        margin-top: -5px;
+    }
+
+    h3 {
+        font-size: 2.8125rem;
+        font-weight: 700;
+        color: #18212e;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+}
+
+// Banner Section
+.banner-section {
+    overflow: hidden;        
+    text-align:center;
+
+  
+.zoominheader {        
+    height: 30rem;
+    text-align:center;
+    background: linear-gradient(to right, rgb(187, 11, 11, 0.7) 40%, rgba(187, 11, 11, 0.7)), url("/../assets/images/resources_banner.jpg");
+    background-position: center top;        
+    background-size: cover;        
+    -webkit-animation: zoomin 10s ease-in infinite;
+    animation: zoomin 10s ease-in infinite;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+}
+        
+// @keyframes zoomin {
+//     0% {transform: scale(1);}        
+//     100% {transform: scale(1.05);}
+// }          
+
+/*End of Zoom in Keyframes */         
+.banner-info {        
+    padding-top: 12rem;
+    padding-bottom: 10rem;  
+    // padding-left: 10rem;                    
+
+    h2 {                        
+        font-size: 3rem;
+        color: #ffffff;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 1.3rem;
+        color: #ffffff;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        margin-top:50px;
+    }
+    button.finbyz-button {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: #bb0b0b;
+        -webkit-transition: .3s all ease;
+        transition: .3s ease all;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: inline-block;
+        text-align: center;
+        width: 200px;
+        font-weight: 700;
+        padding: 14px 0;
+        border: 3px solid #ffffff;
+        border-radius: 2px;
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.1);
+        z-index: 2;
+    }
+    button.finbyz-button:before {
+        -webkit-transition: .5s all ease;
+        transition: .5s all ease;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        opacity: 0;
+        content: '';
+        background-color: #ffffff;
+        z-index: -1;
+    }
+    button.finbyz-button:hover,
+    button.finbyz-button:focus
+    {
+      color: #bb0b0b;
+    }
+    button.finbyz-button:hover:before,
+    button.finbyz-button:focus:before{
+      -webkit-transition: 0.5s all ease;
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+}
+}
+
+.resource-section {
+    .resources-info {
+        box-shadow: 5px 1px 15px rgba(0, 0, 0, 0.06);
+
+        .content {
+            padding: 10px 20px 30px;     
+
+            // .btn {
+            //     background-color: #bb0b0b;
+            //     color: #ffffff;
+            //     border: 1px solid #bb0b0b;
+            //     font-weight: 600;
+            // }
+        }        
+    }
+
+    .resources-info:hover {
+        .content {
+            background-color: #bb0b0b;
+            color: #ffffff;
+
+            // .btn {
+            //     border: 1px solid #ffffff;
+            //     background-color: #ffffff;
+            //     color: #bb0b0b;
+            // }
+        }
+    }
+}
+
+.banner-btn {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #bb0b0b;
+    -webkit-transition: .3s all ease;
+    transition: .3s ease all;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    width: 180px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border: 3px solid #ffffff;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .1);
+    z-index: 2;
+}
+
+.banner-btn:before {
+    -webkit-transition: .5s all ease;
+    transition: .5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #ffffff;
+    z-index: -1;
+}
+
+.banner-btn:hover,
+.banner-btn:focus {
+    color: #bb0b0b;
+}
+
+.banner-btn:hover:before,
+.banner-btn:focus:before {
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.join-section {
+    overflow: hidden;
+    position: relative;
+
+    .button {
+        display: flex;
+        justify-content: center;
+        margin-top:50px;
+    }
+    button.finbyz-button {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: #bb0b0b;
+        -webkit-transition: .3s all ease;
+        transition: .3s ease all;
+        font-size: 18px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: inline-block;
+        text-align: center;
+        width: 270px;
+        font-weight: 700;
+        padding: 14px 0;
+        border: 3px solid #ffffff;
+        border-radius: 2px;
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.1);
+        z-index: 2;
+    }
+    button.finbyz-button:before {
+        -webkit-transition: .5s all ease;
+        transition: .5s all ease;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        opacity: 0;
+        content: '';
+        background-color: #ffffff;
+        z-index: -1;
+    }
+    button.finbyz-button:hover,
+    button.finbyz-button:focus
+    {
+      color: #bb0b0b;
+    }
+    button.finbyz-button:hover:before,
+    button.finbyz-button:focus:before{
+      -webkit-transition: 0.5s all ease;
+      transition: 0.5s all ease;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+}
+
+.joinus-area {    
+    background-color: #bb0b0b;
+    min-height: 290px;
+    padding: 80px 7%;
+    border-radius: 5px;
+    min-width: 100%;
+    justify-content: center;
+    position: relative;
+
+    h2 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        font-family: cuprum, sans-serif;
+        color: #ffffff;
+        line-height: 1.5;
+    }      
+    
+}

@@ -1,0 +1,194 @@
+<div class="card banner-wrp">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="pull-left">
+            <h4 class="card-title mb-0">Add new Our-Culture</h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-primary light px-3" data-bs-toggle="modal" (click)="getAllOurCulture()"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" class="btn btn-primary light px-3" data-bs-toggle="modal" (click)="getAllOurCulture()"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+
+        <div class="card-body">
+            <div class="basic-form">
+                <form [formGroup]="OurcultureForm">
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg"> Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="name" >
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg"> Designation</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="jobTitle" >
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg"> Details</label>
+                        <div class="col-sm-10">
+                            <quill-editor formControlName="text"></quill-editor>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg"> Image</label>
+                        <div class="col-sm-10 form-file">
+                            <input #bannerImageInput type="file" class="form-file-input form-control" id="ourcultureImage" (change)="ourcultureImages($event)">
+                        </div>
+                    </div>
+
+                    
+                    
+                    <button type="button" class="btn btn-danger btn-margin"  (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ourculture-create"  >Publish</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm stats here -->
+
+
+<div class="modal fade" id="ourculture-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                    
+                        <div align="right">
+                        <button type="button" class="btn btn-danger btn-margin" data-bs-dismiss="modal">Close</button> 
+                        <button type="submit"  class="btn btn-success" (click)="ourCultureSubmit()"  data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal confim end here -->
+
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Our Culture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="OurcultureUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Our-Culture</label>
+                            <div class="col-sm-12">
+                                <select
+                                 class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)" >
+                                    <option value="">--Select Our-Culture--</option>
+                                    <option *ngFor="let item of OurcultureData" [value]="item.id">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>    
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg"> Name</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg" value="{{ formEdit ?  OurcultureObj.name: '' }}" [ngModel]="formEdit ? OurcultureObj.name : '' " formControlName="name">
+                            </div>
+                        </div>
+    
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg"> Designation</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg" value="{{ formEdit ?  OurcultureObj.jobTitle: '' }}" [ngModel]="formEdit ? OurcultureObj.jobTitle : '' " formControlName="jobTitle" >
+                            </div>
+                        </div>
+    
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg"> Details</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="text" [ngModel]="formEdit ?  OurcultureObj.text: ''" value="{{formEdit ?  OurcultureObj.text: ''}}"></quill-editor>
+                            </div>
+                        </div>
+    
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg"> Image</label>
+                            <div class="col-sm-12 form-file">
+                                <input #bannerImageInput  type="file" id="bannerImage" class="form-file-input form-control" (change)="ourcultureImages($event)">
+                                <span *ngIf="formEdit ? OurcultureObj.fileName?.length: ''">Uploded image: {{formEdit ? OurcultureObj.fileName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                            <button type="submit" class="btn btn-danger light btn-margin" (click)="ourCultureUpdate()"
+                            data-bs-dismiss="modal">Update</button>
+                        <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  OurcultureObj.id: '' }}" [ngModel]="formEdit ? OurcultureObj.id : '' " formControlName="id">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="clearForm()" >Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->
+
+
+<!-- Modal Delete start here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <!-- <h5 class="modal-title">Are you sure to delete ?</h5> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div> 
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="OurcultureDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Our Culture</label>
+                            <div>
+                                <select
+                                #selectElem class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                    <option value="">--Select our culture--</option> 
+                                    <option *ngFor="let item of OurcultureData" [value]="item.id">{{item.name}}</option>                                                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div align="center" class="mb-5">
+                            <button type="submit" class="btn btn-delete light btn-margin"(click)="OurCultureDelete()"data-bs-dismiss="modal">Yes Delete It!</button>                    
+                            <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  OurcultureObj.id: '' }}" [ngModel]="formEdit ? OurcultureObj.id : '' " formControlName="id">
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal"(click)="clearForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->
+

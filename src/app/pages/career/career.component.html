@@ -1,0 +1,117 @@
+<!-- loader start -->
+<div *ngIf="loader" class="egns-preloader">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <div class="circle-border">
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <div class="moving-circle"></div>
+          <svg width="180px" height="150px" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet" style="
+              left: 50%;
+              top: 50%;
+              position: absolute;
+              transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
+            ">
+            <path stroke="#D90A2C" id="outline" fill="none" stroke-width="4" stroke-linecap="round"
+              stroke-linejoin="round" stroke-miterlimit="10"
+              d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+            <path id="outline-bg" opacity="0.05" fill="none" stroke="#959595" stroke-width="4" stroke-linecap="round"
+              stroke-linejoin="round" stroke-miterlimit="10"
+              d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- loader emd -->
+
+
+<div class="inner-banner pt-100">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center text-center">
+      <div class="col-md-12">
+        <h2 class="inner-banner-title wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">Career</h2>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb gap-3">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Career</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="job-section pb-100" id="job-list">
+  <div class="container">
+    <div class="row mt-50">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="documentation-tab-wrap">
+          <div class="tab-content tab-content-shape pt-5 wow animate__animated animate__fadeInUp"
+            data-wow-duration="1.5s" id="pills-tabContent">
+            <div class="tab-pane fade active show" id="pills-one" role="tabpanel" aria-labelledby="pills-one-tab">
+              <div class="row justify-content-center d-flex g-4">
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-10 col-12"
+                  *ngFor="let career of careerArrayList;let i=index">
+                  <div class="jobpost-item hover-border2" *ngIf="category==career.category">
+                    <div class="job-header">
+                      <div class="icon">
+                        <img src="../../../assets/images/download.png" alt="Career Icon"/>
+                      </div>
+                      <h4 class="title">
+                        <a (click)="jobapply(career)">{{career.jobTitle}}</a>
+                      </h4>
+                    </div>
+                    <div class="job-body">
+                      <p class="para">
+                        {{career.jobDescription}}
+                      </p>
+                      <ul class="job-meta d-flex justify-content-between">
+                        <li><i class="bi bi-clock"></i> {{career.jobType}}</li>
+                        <li><i class="bi bi-calendar3"></i> {{career.postDate}}</li>
+                      </ul>
+                    </div>
+                    <div class="job-footer">
+                      <a (click)="jobapply(career)" class="apply-btn btn">Apply Now</a>
+                    </div>
+                  </div>
+                  <div class="jobpost-item hover-border2" *ngIf="category=='all'">
+                    <div class="job-header">
+                      <div class="icon">
+                        <img src="../../../assets/images/download.png" alt="Career Icon"/>
+                      </div>
+                      <h4 class="title">
+                        <a (click)="jobapply(career)">{{career.jobTitle}}</a>
+                      </h4>
+                    </div>
+                    <div class="job-body">
+                      <p class="para">
+                        {{career.jobDescription}}
+                      </p>
+                      <ul class="job-meta d-flex justify-content-between">
+                        <li><i class="bi bi-clock"></i> {{career.jobType}}</li>
+                        <li><i class="bi bi-calendar3"></i> {{career.postDate}}</li>
+                      </ul>
+                    </div>
+                    <div class="job-footer">
+                      <a (click)="jobapply(career)" class="apply-btn btn">Apply Now</a>
+                    </div>
+                  </div>
+                </div>
+              <div class="row" *ngIf="careerArrayList.length >= itemsPerPage">
+                <div class="col-lg-12 d-flex justify-content-center mt-5 pagination-wrap">
+                  <div class="pagination d-flex align-items-center">
+                    <button class="pagination-btn" (click)="changePreviousPage()" [disabled]="currentPage === 1">Previous</button>
+                    <span> {{ currentPage }}</span>
+                    <button class="pagination-btn" (click)="changeNextpage()" [disabled]="currentPage === lastpage">Next</button>
+                  </div>
+                </div>      
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

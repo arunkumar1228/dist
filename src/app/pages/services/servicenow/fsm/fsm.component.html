@@ -1,0 +1,119 @@
+<section class="banner-section">
+  <div class="container-fluid">
+    <div class="row zoominheader">
+      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 text-start">
+        <div class="banner-info">
+            <h2>On the Move: Redefining Field Service Dynamics</h2>
+            <p>Optimizing field service activities with intelligent dispatching, real-time scheduling, and streamlined work order management.</p>
+            <a href="/contact"><button class="finbyz-button">Join Us</button></a>
+        </div>        
+      </div>      
+    </div>
+  </div>
+</section>
+
+<div class="why-us-section pt-50 pb-50">
+  <img src="assets/images/top_bg_pattern.svg" alt="background_pattern" class="banner-bg-top img-fluid">
+  <img src="assets/images/bottom_bg_pattern.svg" alt="background_pattern" class="banner-bg-bottom img-fluid">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-12 col-sm-12 col-xs-12 text-center my-0 mx-auto wow animate__animated animate__fadeInUp" data-wow-duration="1.5s"
+        data-wow-delay="0.4s">
+          <div class="title primary1">
+            <!-- <span>-WHY CHOOSE US-</span> -->
+            <h3>Our Field Service Management Features</h3>   
+            <p class="pt-3">QBrainX helps organizations match the tasks of their field agents based on the skills, assignments, inventory, and geographical territory. Assisting field agents with task management, status, time management, and travel planning for all field-related activities. Our platform enables you to conduct risk assessments, create custom job reports, schedule recurring tasks, and generate invoices in real-time. You can completely customize the way your business processes are run with our field service management software.</p>       
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center g-4">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" *ngFor="let blog of serviceArray;let i=index">
+          <div class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInUp"
+            data-wow-duration="1.5s" data-wow-delay="0.2s">
+            <div class="service-content">
+              <span class="sn"><img [src]="getIconUrl(blog)" /></span>
+              <h4><a>{{blog.title}}</a></h4>
+              <p class="para">
+                {{blog.text}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="highlights-section wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
+    <div class="container info">
+        <div class="row pt-3">
+            <div class="col-md-12 title text-center">
+                <!-- <span>ServiceNow Services</span> -->
+                <h3>FSM Advantages</h3>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-lg-12">
+                <div class="work-process-area">
+                    <div class="row g-4">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/portal.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Portal for end-user<br>requests</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/advance-tech.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Engine for advanced<br>technician recommendations</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/view.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Views of technicians, worksites,<br>and drive time on the dispatch map</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/Asset-management.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Management of asset<br>and part availability</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="work-process-item text-center">
+                                <img src="/assets/images/workspace.svg" alt="image" width="50px">
+                                <h4 class="pt-3">Improved call center<br>agent workspace</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="join-section pb-50">
+  <div class="container">
+    <div
+      class="joinus-area d-flex align-items-center wow animate__animated animate__fadeInUp"
+      data-wow-duration="1.5s"
+      data-wow-delay="0.4s"
+    >
+      <div class="row d-flex align-items-center g-4">
+        <div
+          class="col-lg-7 justify-content-lg-start justify-content-center text-lg-start text-center"
+        >
+          <h2>Start Your Journey Towards Unmatched Innovation and Success.</h2>                
+        </div>
+        <div
+          class="col-lg-5 d-flex justify-content-lg-end justify-content-center wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s"
+        >
+
+       <a href="/contact"><button class="finbyz-button">Talk to our Experts</button></a>
+
+                  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #000;
+    text-transform: capitalize;
+}
+
+.col-form-label-lg {
+    padding-top: calc(0.5rem + 1px);
+    padding-bottom: calc(0.5rem + 1px);
+    font-size: 1.09375rem;
+}
+
+.form-control:focus {
+    border-color: #FF6A59;
+}
+
+.form-control:hover,
+.form-control:focus,
+.form-control.active {
+    box-shadow: none;
+    background: #fff;
+    color: #6e6e6e;
+}
+
+.form-control-lg {
+    min-height: 3.75rem;
+    padding: 0.5rem 1.1rem;
+    font-size: 1.09375rem;
+    border-radius: 0.5rem;
+    height: calc(1.5em + 1rem + 2px);
+}
+
+.input-group {
+    display: block;
+}
+
+.btn-primary {
+    border-color: #FF6A59;
+    background-color: #FF6A59;
+}
+
+.card.banner-wrp {
+    left: 21rem;
+    top: 7rem;
+    width: 70%;
+}
+
+.custom-ic {
+    font-size: 46px;
+    color: #FF6A59;
+}

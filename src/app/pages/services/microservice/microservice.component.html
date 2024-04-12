@@ -1,0 +1,197 @@
+<section class="banner-section">
+  <div class="container-fluid">
+    <div class="row zoominheader">
+      <div class="col-xl-6 col-lg-6 col-md-7 col-sm-12 col-xs-12 text-start">
+        <div class="banner-info">
+            <h2>Agility Amplified: Microservices at the Core</h2>
+            <p>Fueling innovation by embracing a modular approach, where microservices liberate your applications for unparalleled flexibility and growth.</p>
+            <a href="/contact"><button class="finbyz-button">Consult Now</button></a>
+
+        </div>        
+      </div>               
+    </div>
+  </div>
+</section>
+
+<div class="why-us-section pt-50 pb-50 wow animate__animated animate__fadeInUp" data-wow-duration="1.5s">
+    <img src="assets/images/top_bg_pattern.svg" alt="background_pattern" class="banner-bg-top img-fluid">
+    <img src="assets/images/bottom_bg_pattern.svg" alt="background_pattern" class="banner-bg-bottom img-fluid">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-12 col-sm-12 col-xs-12 text-center my-0 mx-auto">
+          <div class="title primary1">
+            <!-- <span>-WHY CHOOSE US-</span> -->
+            <h3>Our Microservice Architecture Services</h3>   
+            <p class="pt-3">Transform your IT stack with our revolutionary microservice architecture. Many enterprises leveraged QBrainX’s solution to upgrade their IT stacks with agile, secure, and more autonomous microservices applications. We constructed several applications using microservices, and we used basic mechanisms to carry out quick repairs, upgrades, and other features. Using DevOps and agile approaches, we created numerous microservice applications.</p>       
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center g-4 pt-3">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s" *ngFor="let blog of serviceArray;let i=index">
+          <div class="service-item2 service-info-2 style-4">
+            <div class="service-content">
+              <span class="sn"><img [src]="getIconUrl(blog)" /></span>
+              <h4><a>{{blog.title}}</a></h4>
+              <p class="para">
+                {{blog.text}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div
+            class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+            data-wow-duration="1.5s"
+            data-wow-delay="0.2s"
+          >
+            <div class="service-content">
+              <span class="sn"><i class="bi bi-person"></i></span>
+              <h4><a>Microservices Assessment</a></h4>
+              <p class="para">
+                A comprehensive assessment of your enterprise IT systems, as well as a strategic roadmap for easy microservices adoption.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div
+            class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+            data-wow-duration="1.5s"
+            data-wow-delay="0.4s"
+          >
+            <div class="service-content">
+              <span class="sn"><i class="bi bi-exclamation-triangle"></i></span>
+              <h4><a>Microservices Migration</a></h4>
+              <p class="para">
+                Microservices enable a smooth transition from monolithic apps and legacy systems to a microservices architecture.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div
+            class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+            data-wow-duration="1.5s"
+            data-wow-delay="0.8s"
+          >
+            <div class="service-content">
+              <span class="sn"><i class="bi bi-shield-lock"></i></span>
+              <h4><a>Microservices and DevOps</a></h4>
+              <p class="para">
+                Microservices are well-suited to DevOps ideals, allowing small teams to collaborate more effectively.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div
+            class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+            data-wow-duration="1.5s"
+            data-wow-delay="0.6s"
+          >
+            <div class="service-content">
+              <span class="sn"><i class="bi bi-box2"></i></span>
+              <h4><a>Microservices Testing</a></h4>
+              <p class="para">
+                Our microservices testing services assist you in validating the workflow of the entire work process, as well as all services and integrations.
+              </p>
+            </div>
+          </div>
+        </div> 
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div
+              class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+              data-wow-duration="1.5s"
+              data-wow-delay="0.6s"
+            >
+              <div class="service-content">
+                <span class="sn"><i class="bi bi-box2"></i></span>
+                <h4><a>Support and Maintenance</a></h4>
+                <p class="para">
+                    We offer proactive support and maintenance services to improve the quality and reduce the number of defects in microservices application development.
+                </p>
+              </div>
+            </div>
+        </div> 
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div
+                class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+                data-wow-duration="1.5s"
+                data-wow-delay="0.6s"
+            >
+                <div class="service-content">
+                <span class="sn"><i class="bi bi-box2"></i></span>
+                <h4><a>Microservices Integration</a></h4>
+                <p class="para">
+                    By integrating APIs to make application databases and legacy apps more flexible and agile, we can effectively build and manage microservices.
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div
+                class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+                data-wow-duration="1.5s"
+                data-wow-delay="0.6s"
+            >
+                <div class="service-content">
+                <span class="sn"><i class="bi bi-box2"></i></span>
+                <h4><a>Enterprise Microservices Adoption</a></h4>
+                <p class="para">
+                    Only the components that require an upgrade must be upgraded in a Microservices architecture. Other technologies that do not require major upgrades can be used to implement the remaining applications.
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div
+                class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+                data-wow-duration="1.5s"
+                data-wow-delay="0.6s"
+            >
+                <div class="service-content">
+                <span class="sn"><i class="bi bi-box2"></i></span>
+                <h4><a>Custom App Development for All Size of Businesses</a></h4>
+                <p class="para">
+                    Using Multiple microservice components, deploy, alter and redeploy independently. With resources like merchant forums and targeted ad platforms at your disposal, you can accelerate app adoption.
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div
+                class="service-item2 service-info-2 style-4 wow animate__animated animate__fadeInDown"
+                data-wow-duration="1.5s"
+                data-wow-delay="0.6s"
+            >
+                <div class="service-content">
+                <span class="sn"><i class="bi bi-box2"></i></span>
+                <h4><a>Data Microservices</a></h4>
+                <p class="para">
+                    Polyglot persistence is supported by our data microservice architecture. It means that different database technologies can be used for different microservices.
+                </p>
+                </div>
+            </div>
+        </div>               -->
+      </div>
+    </div>
+</div>
+
+<div class="join-section pb-50 pt-50">
+  <div class="container">
+    <div class="joinus-area d-flex align-items-center wow animate__animated animate__fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
+      <div class="row d-flex align-items-center g-4">
+        
+        <div class="col-lg-7 justify-content-lg-start justify-content-center text-lg-start text-center">
+          <h2>Start Your Journey Towards Unmatched Innovation and Success.</h2>
+        </div>
+        
+        <div class="col-lg-5 d-flex justify-content-lg-end justify-content-center">
+         <a href="/contact"><button class="finbyz-button">Talk to our Experts</button></a>
+                  
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

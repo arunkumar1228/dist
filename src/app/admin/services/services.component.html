@@ -1,0 +1,201 @@
+<div class="card banner-wrp">
+    <div class="card-header">
+        <div class="pull-left">
+            <h4 class="card-title"> Add Service </h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="allServiceList()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i> 
+            </button>
+            <button type="button" (click)="allServiceList()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+
+    <div class="card-body">
+        <div class="basic-form">
+                <form [formGroup]="ServiceForm">
+
+                <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">service Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control form-control-lg" formControlName="serviceName" >
+                        </div>
+                    </div>
+
+                <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">service description </label>
+                    <div class="col-sm-10">
+                            <quill-editor formControlName="serviceDescription" [config]="quillConfig"></quill-editor>
+                    </div>
+                </div>
+               
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label col-form-label-lg">link</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-lg" formControlName="link" >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Icon</label>
+                        <div class="col-sm-10 form-file">
+                            <input #iconImageInput type="file" class="form-file-input form-control" id="icon" (change)="IconImage($event)">
+                    </div>
+                </div>
+                     <div class="mb-3 row">
+                        <label class="col-sm-2 col-form-label col-form-label-lg">Backround Image</label>
+                    <div class="col-sm-10 form-file">
+                            <input #serviceImageInput type="file" class="form-file-input form-control" id="serviceImage" (change)="ServiceImage($event)">
+                        </div>
+                    </div>
+
+                    
+                    <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#banner-create" >Submit</button>
+                    
+                
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="banner-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+                    
+                        <div align="right">
+                        <button type="button" class="btn btn-danger btn-margin" data-bs-dismiss="modal">Close</button> 
+                        <button type="submit" (click)="serviceSubmit()"  class="btn btn-success"  data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+                <h5 class="modal-title">Edit Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="ServiceUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Service</label>
+                            <div class="col-sm-12">
+                                <select
+                                class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                   <option value="">--Select Service--</option>
+                                   <option *ngFor="let item of ServiceDetails" [value]="item.serviceId">{{item.serviceName}}</option>
+                               </select>
+                            </div>
+                        </div>     
+                        
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg"> Service Name</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control form-control-lg"  value="{{ formEdit ?  serviceObj.serviceName: '' }}" [ngModel]="formEdit ? serviceObj.serviceName : '' " formControlName="serviceName" >
+                            </div>
+                        </div>
+
+                   
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">service Description</label>
+                            <div class="col-sm-12">
+                                <quill-editor formControlName="serviceDescription" [ngModel]="formEdit ?  serviceObj.serviceDescription: ''" value="{{formEdit ?  serviceObj.serviceDescription: ''}}"
+                                [config]="quillConfig"></quill-editor>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">link</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg"  value="{{ formEdit ?  serviceObj.link: '' }}" [ngModel]="formEdit ? serviceObj.link : '' " formControlName="link" >
+                            </div>
+                        </div>
+                      
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Icon</label>
+                            <div class="col-sm-12 form-file">
+                                <input #iconImageInput type="file" id="icon" class="form-file-input form-control" (change)="IconImage($event)">
+                                <span #iconImageInput *ngIf="formEdit ? serviceObj.iconName?.length: ''">Uploded image: {{formEdit ? serviceObj.iconName : ''}}</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-form-label-lg">Service Image</label>
+                            <div class="col-sm-12 form-file">
+                                <input #serviceImageInput type="file" id="bannerImage" class="form-file-input form-control" (change)="ServiceImage($event)">
+                                <span #serviceImageInput *ngIf="formEdit ? serviceObj.serviceFileName?.length: ''">Uploded image: {{formEdit ? serviceObj.serviceFileName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                            <button type="submit" class="btn btn-primary"  data-bs-toggle="modal" data-bs-dismiss="modal" (click)="serviceUpdate()" >Save changes</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No Cancel It!</button>
+
+                            <input type="hidden" class="form-control form-control-lg" value="{{ formEdit ?  serviceObj.serviceId: '' }}" [ngModel]="formEdit ? serviceObj.serviceId : '' " formControlName="serviceId">
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->
+
+
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="ServiceDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Blog</label>
+                            <div>
+                                <select
+                                class="default-select form-control wide mb-3 form-control-lg" (change)="onChange($event)">
+                                   <option value="">--Select Service--</option>
+                                   <option *ngFor="let item of ServiceDetails" [value]="item.serviceId">{{item.serviceName}}</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div align="center" class="mb-5">
+                            <button type="submit" class="btn btn-delete light btn-margin"data-bs-dismiss="modal" (click)="testimonialDelete()">Yes Delete It!</button>                    
+                            <input type="hidden" class="form-control form-control-lg"
+                                [ngModel]="formEdit ? serviceObj.serviceId : ''" value="{{formEdit ? serviceObj.serviceId : ''}}"
+                                formControlName="serviceId">
+                            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,190 @@
+<div class="card banner-wrp">
+
+    <div class="card-header">
+        <div class="pull-left">
+            <h4 class="card-title">WHAT WE ARE</h4>
+        </div>
+        <div class="pull-right">
+            <button type="button" (click)="weOffergetAll()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#banner-delete">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" (click)="weOffergetAll()" class="btn btn-primary light px-3" data-bs-toggle="modal"
+                data-bs-target="#model-edit">
+                <i class="fa fa-edit"></i></button>
+
+        </div>
+    </div>
+
+
+    <div class="card-body">
+        <div class="basic-form">
+            <form [formGroup]="WhatWeAreForm">
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label col-form-label-lg">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control form-control-lg" formControlName="title"
+                            >
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label col-form-label-lg">Description</label>
+                    <div class="col-sm-10">
+
+                        <textarea class="form-control" rows="4" id="comment" formControlName="description"></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label col-form-label-lg">Image</label>
+                    <div class="col-sm-10 form-file">
+                        <input #whatWeOfferImageInput type="file" class="form-file-input form-control"
+                            id="WhatWeOfferImage" (change)="imageValidate($event)">
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Clear</button>
+                <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#banner-create">
+                    Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Delete start here -->
+<div class="modal fade" id="banner-delete">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body text-center">
+                <i class="fa fa-info-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to delete ?
+            </div>
+
+            <div class="card-body">
+                <div class="basic-form">
+                    <form [formGroup]="WeOfferDelete">
+                        <div class="p-3 row">
+                            <label class="col-form-label col-form-label-lg">Select Section</label>
+                            <div class="col-sm-12">
+                                <select class="default-select form-control wide mb-3 form-control-lg"
+                                    formControlName="id">
+                                    <option>--Select--</option>
+                                    <option value="{{weoffer.id}}" *ngFor="let weoffer of weofferData">{{weoffer.title}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger light btn-margin" (click)="weOfferDelete()"
+                                data-bs-dismiss="modal">Yes Delete It!</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No Cancel It!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Delete end here -->
+
+
+
+<!-- Modal Edit start here -->
+<div class="modal fade" id="model-edit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Who we are - Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form [formGroup]="WeofferUpdate">
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">Select</label>
+                            <div class="col-sm-10">
+                                <select class="default-select form-control wide mb-3 form-control-lg"
+                                    (change)="onChange($event)">
+                                    <option>--Select--</option>
+                                    <option value="{{weoffer.id}}" *ngFor="let weoffer of weofferData">{{weoffer.title}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">Title</label>
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control form-control-lg"
+                                    value="{{ formEdit ?  weoffObj.title: '' }}"
+                                    [ngModel]="formEdit ? weoffObj.title : '' " formControlName="title"
+                                    ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">Description</label>
+                            <div class="col-sm-10">
+
+                                <textarea class="form-control" rows="4" id="comment"
+                                    value="{{ formEdit ?  weoffObj.description: '' }}"
+                                    [ngModel]="formEdit ? weoffObj.description: '' "
+                                    formControlName="description"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-sm-2 col-form-label col-form-label-lg">Image</label>
+                            <div class="col-sm-10 form-file">
+                                <input #whatWeOfferImageInput type="file" class="form-file-input form-control"
+                                    id="WhatWeOfferImage" (change)="imageValidate($event)">
+                                <span *ngIf="formEdit ? weoffObj.imageName?.length : ''">Uploded image: {{formEdit ?
+                                    weoffObj.imageName : ''}}</span>
+                            </div>
+                        </div>
+                        <div align="right">
+                            <button type="button" class="btn btn-danger btn-margin"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="weOfferUpdate()" class="btn btn-primary"
+                                data-bs-dismiss="modal">Save changes</button>
+                            <input type="hidden" class="form-control form-control-lg"
+                                value="{{ formEdit ?  weoffObj.id: '' }}" [ngModel]="formEdit ? weoffObj.id : '' "
+                                formControlName="id">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Modal Edit end here -->
+
+<div class="modal fade" id="banner-create">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <i class="fa fa-check-circle custom-ic" aria-hidden="true"></i> <br />
+                Are you sure to submit?
+            </div>
+            <div class="modal-body">
+                <div class="basic-form">
+                    <form>
+
+                        <div align="right">
+                            <button type="button" class="btn btn-danger btn-margin"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" (click)="weOffersubmit()" class="btn btn-primary"
+                                data-bs-dismiss="modal">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
